@@ -15,21 +15,21 @@ class CreateClientesTable extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('nombre', 70);
-            $table->string('calle', 70);
-            $table->string('numero', 10);
-            $table->string('interior', 10);
-            $table->string('colonia', 70);
-            $table->string('ciudad', 70);
-            $table->string('cp', 10);
-            $table->string('estado', 20);
-            $table->string('contacto1', 50);
-            $table->string('tel1', 20);
-            $table->string('mail1', 50);
-            $table->string('contacto2', 50);
-            $table->string('tel2', 20);
-            $table->string('mail2', 50);
-            $table->string('dia_revision', 20);
+            $table->string('nombre');
+            $table->string('calle');
+            $table->string('numero');
+            $table->string('interior');
+            $table->string('colonia');
+            $table->string('ciudad');
+            $table->string('cp');
+            $table->string('estado');
+            $table->string('contacto1');
+            $table->string('tel1');
+            $table->string('mail1');
+            $table->string('contacto2');
+            $table->string('tel2');
+            $table->string('mail2');
+            $table->string('dia_revision');
             $table->integer('dia_credito');
             $table->timestamps();
         });

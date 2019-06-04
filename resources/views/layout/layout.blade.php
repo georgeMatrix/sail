@@ -10,11 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            @yield('contenido')
-        </div>
-    </div>
+    @yield('contenido')
 </div>
 <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
 </body>

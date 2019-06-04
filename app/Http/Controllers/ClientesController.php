@@ -15,7 +15,7 @@ class ClientesController extends Controller
     public function index()
     {
         $clientes = Clientes::all();
-        return view('clientes')->with('clientes' , $clientes);
+        return view('cliente/clientes')->with('clientes' , $clientes);
     }
 
     /**
@@ -25,7 +25,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        //
+        return view('cliente/clienteCreate');
     }
 
     /**
@@ -36,7 +36,9 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clientes = $request->except('_token');
+        Clientes::insert($clientes);
+        return response()->json($clientes);
     }
 
     /**
@@ -56,9 +58,10 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clientes $clientes)
+    public function edit($id)
     {
-        //
+        $cliente = Clientes::findOrFail($id);
+        return view('cliente/clienteEdit')->with('cliente', $cliente);
     }
 
     /**
@@ -68,9 +71,13 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clientes $clientes)
+    public function update(Request $request, $id)
     {
-        //
+        $clientes = $request->except(['_token', '_method']);
+        Clientes::where('id', '=', $id)->update($clientes);
+        $cliente = Clientes::findOrFail($id);
+        //return view('cliente/clienteEdit')->with('cliente', $cliente);
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -79,8 +86,9 @@ class ClientesController extends Controller
      * @param  \App\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clientes $clientes)
+    public function destroy($id)
     {
-        //
+        Clientes::destroy($id);
+        return redirect()->route('clientes.index');
     }
 }
