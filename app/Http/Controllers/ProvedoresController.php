@@ -14,7 +14,8 @@ class ProvedoresController extends Controller
      */
     public function index()
     {
-        //
+        $provedores = Provedores::orderBy('id', 'DESC')->paginate(10);
+        return view('provedor/provedores')->with('provedores' , $provedores);
     }
 
     /**
@@ -24,7 +25,7 @@ class ProvedoresController extends Controller
      */
     public function create()
     {
-        //
+        return view('provedor/provedorCreate');
     }
 
     /**
@@ -35,7 +36,23 @@ class ProvedoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campos = [
+            'nombre' => 'required',
+            'razon_social' => 'required',
+            'rfc' => 'required',
+            'direccion' => 'required',
+            'contacto' => 'required',
+            'mail' => 'required',
+            'credito' => 'required|numeric',
+            'saldo' => 'required|numeric',
+        ];
+        //Este mensaje se dejo aqui por si se requiere ver los datos que no cumplen con alguna validacion en el formulario
+        $mensaje = ["required"=>'El :attribute es requerido'];
+        $this->validate($request, $campos, $mensaje);
+
+        $provedor = $request->except('_token');
+        Provedores::insert($provedor);
+        return redirect()->route('provedores.index');
     }
 
     /**
@@ -55,9 +72,10 @@ class ProvedoresController extends Controller
      * @param  \App\Provedores  $provedores
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provedores $provedores)
+    public function edit($id)
     {
-        //
+        $provedor = Provedores::findOrFail($id);
+        return view('provedor/provedorEdit')->with('provedor', $provedor);
     }
 
     /**
@@ -67,9 +85,11 @@ class ProvedoresController extends Controller
      * @param  \App\Provedores  $provedores
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provedores $provedores)
+    public function update(Request $request, $id)
     {
-        //
+        $provedores = $request->except(['_token', '_method']);
+        Provedores::where('id', '=', $id)->update($provedores);
+        return redirect()->route('provedores.index');
     }
 
     /**
@@ -78,8 +98,9 @@ class ProvedoresController extends Controller
      * @param  \App\Provedores  $provedores
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provedores $provedores)
+    public function destroy($id)
     {
-        //
+        Provedores::destroy($id);
+        return redirect()->route('provedores.index');
     }
 }

@@ -15,8 +15,8 @@ class CreateUnidadesTable extends Migration
     {
         Schema::create('unidades', function (Blueprint $table) {
             $table->Increments('id');
-            $table->unsignedInteger('provedores');
-            $table->foreign('provedores')->references('id')->on('provedores');
+            $table->unsignedInteger('provedor');
+            $table->foreign('provedor')->references('id')->on('provedores');
             $table->string('nombre', 70);
             $table->string('economico', 10);
             $table->string('tipo', 20);

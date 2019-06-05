@@ -11,8 +11,16 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-Route::resource('/', 'ClientesController');
+Route::get('/', function () {
+    return view('auth.login');
+});
+//Route::resource('/', 'ClientesController');
 Route::resource('clientes', 'ClientesController');
+Route::resource('operadores', 'OperadoresController');
+Route::resource('provedores', 'ProvedoresController');
+Route::resource('rutas', 'RutasController');
+Route::resource('unidades', 'UnidadesController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

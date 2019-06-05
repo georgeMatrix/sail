@@ -15,14 +15,14 @@ class CreateOperadoresTable extends Migration
     {
         Schema::create('operadores', function (Blueprint $table) {
            $table->Increments('id');
-            $table->string('apellido_paterno', 20);
-            $table->string('apellido_materno', 20);
-            $table->string('nombres', 50);
-            $table->string('nombre_corto', 20);
-            $table->string('licencia', 20);
+            $table->string('apellido_paterno');
+            $table->string('apellido_materno');
+            $table->string('nombres');
+            $table->string('nombre_corto');
+            $table->string('licencia');
             $table->date('vigencia_licencia');
             $table->date('vigencia_medico');
-            $table->string('obs', 100);
+            $table->string('obs');
             $table->timestamps();
         });
     }

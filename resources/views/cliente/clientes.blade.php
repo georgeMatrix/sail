@@ -1,13 +1,13 @@
-@extends('layout.layout')
-@section('contenido')
-    <div class="row">
+@extends('layouts.app')
+@section('content')
         <div class="col-md-12">
-            <h1 class="mt-4">Listado de Clientes <a href="{{route('clientes.create')}}" class="mt-2 btn btn-success float-right">Nuevo Cliente</a></h1>
-            <table class="table table-striped table-responsive">
+            <h1 class="mt-4">Listado de Clientes <a href="{{route('clientes.create')}}" class="mt-2 btn btn-success float-right">Nuevo Cliente</a><a href="{{url('/home')}}" class="mt-2 btn btn-primary float-right">Regresar</a></h1>
+            <table class="table table-responsive table-hover">
                 <thead>
                 <tr>
                     <th>id</th>
                     <th>nombre</th>
+                    <th>calle</th>
                     <th>numero</th>
                     <th>interior</th>
                     <th>colonia</th>
@@ -31,6 +31,7 @@
                     <tr>
                         <td>{{$cliente->id}}</td>
                         <td>{{$cliente->nombre}}</td>
+                        <td>{{$cliente->calle}}</td>
                         <td>{{$cliente->numero}}</td>
                         <td>{{$cliente->interior}}</td>
                         <td>{{$cliente->colonia}}</td>
@@ -59,7 +60,6 @@
                 </tbody>
                 @endforeach
             </table>
-
+            {{$clientes->render()}}
         </div>
-    </div>
 @endsection

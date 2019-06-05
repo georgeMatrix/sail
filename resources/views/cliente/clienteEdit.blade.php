@@ -1,5 +1,5 @@
-@extends('layout.layout')
-@section('contenido')
+@extends('layouts.app')
+@section('content')
     <div class="row">
         <div class="col-md-12">
             <h1>Actualizacion de Cliente <a class="btn btn-primary float-right mt-3" href="{{route('clientes.index')}}">Regresar a listado</a></h1>
@@ -16,8 +16,6 @@
                 <input type="text" name="interior" id="interior" class="form-control"  value="{{$cliente->interior}}">
                 <label for="">Colonia</label>
                 <input type="text" name="colonia" id="colonia" class="form-control"  value="{{$cliente->colonia}}">
-                <label for="">Calle</label>
-                <input type="text" name="calle" id="calle" class="form-control"  value="{{$cliente->calle}}">
                 <label for="">Ciudad</label>
                 <input type="text" name="ciudad" id="ciudad" class="form-control"  value="{{$cliente->ciudad}}">
                 <label for="">Cp</label>

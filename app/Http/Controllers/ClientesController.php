@@ -14,7 +14,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Clientes::all();
+        $clientes = Clientes::orderBy('id', 'DESC')->paginate(10);
         return view('cliente/clientes')->with('clientes' , $clientes);
     }
 
@@ -36,9 +36,31 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
+        $campos = [
+            'nombre' => 'required',
+            'calle' => 'required',
+            'numero' => 'required',
+            'interior' => 'required',
+            'colonia' => 'required',
+            'ciudad' => 'required',
+            'cp' => 'required',
+            'estado' => 'required',
+            'contacto1' => 'required',
+            'tel1' => 'required',
+            'mail1' => 'required',
+            'contacto2' => 'required',
+            'tel2' => 'required',
+            'mail2' => 'required',
+            'dia_revision' => 'required',
+            'dia_credito' => 'required|numeric'
+        ];
+        //Este mensaje se dejo aqui por si se requiere ver los datos que no cumplen con alguna validacion en el formulario
+        $mensaje = ["required"=>'El :attribute es requerido'];
+        $this->validate($request, $campos, $mensaje);
+
         $clientes = $request->except('_token');
         Clientes::insert($clientes);
-        return response()->json($clientes);
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -75,7 +97,7 @@ class ClientesController extends Controller
     {
         $clientes = $request->except(['_token', '_method']);
         Clientes::where('id', '=', $id)->update($clientes);
-        $cliente = Clientes::findOrFail($id);
+        //$cliente = Clientes::findOrFail($id);
         //return view('cliente/clienteEdit')->with('cliente', $cliente);
         return redirect()->route('clientes.index');
     }
