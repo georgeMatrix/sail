@@ -20,6 +20,8 @@ Route::resource('operadores', 'OperadoresController');
 Route::resource('provedores', 'ProvedoresController');
 Route::resource('rutas', 'RutasController');
 Route::resource('unidades', 'UnidadesController');
+Route::resource('datosFacturacions', 'DatosFacturacionController');
+Route::resource('usuarios', 'UsuariosController');
 
 Auth::routes();
 

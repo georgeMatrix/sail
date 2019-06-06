@@ -7,11 +7,10 @@
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
                 <label for="">Clientes</label>
-                <label for="">{{$ruta->clientes}}</label>
                 <select name="clientes" id="clientes" class="form-control">
                     @foreach($clientes as $cliente)
                         @if($ruta->clientes == $cliente->id)
-                        <option value="{{$ruta->id}}" selected>{{$cliente->nombre}}</option>
+                        <option value="{{$cliente->id}}" selected>{{$cliente->nombre}}</option>
                             @else
                         <option value="{{$cliente->id}}">{{$cliente->nombre}}</option>
                         @endif

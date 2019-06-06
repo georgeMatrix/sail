@@ -99,3 +99,60 @@ $factory->define(\App\Rutas::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(\App\Unidades::class, function (Faker $faker) {
+    return [
+        'provedor' => $faker->numberBetween(1,10),
+        'nombre' => $faker->name,
+        'economico' => $faker->name,
+        'tipo' => $faker->name,
+        'marca' => $faker->name,
+        'modelo' => $faker->name,
+        'placas' => $faker->name,
+        'serie' => $faker->name,
+        'motor' => $faker->name,
+        'seguro' => $faker->date(),
+        'verificacion' => $faker->date(),
+        'fm' => $faker->date(),
+        'obs' => $faker->name
+    ];
+});
+
+$factory->define(\App\DatosFacturacion::class, function (Faker $faker) {
+    return [
+        'rutas' => $faker->numberBetween(1,10),
+        'claveProdServ' => $faker->name,
+        'noIdentificacion' => $faker->name,
+        'cantidad' => $faker->numberBetween(1000,1500),
+        'claveUnidad' => $faker->name,
+        'unidad' => $faker->name,
+        'descripcion' => $faker->name,
+        'valorUnitario' => $faker->numberBetween(1000,1500),
+        'importe' => $faker->numberBetween(100,1800),
+        'tIva' => $faker->numberBetween(100,150),
+        'tIsr' => $faker->numberBetween(100,150),
+        'rIva' => $faker->numberBetween(100,150),
+        'rIsr' => $faker->numberBetween(100,150)
+    ];
+});
+
+$factory->define(\App\Usuarios::class, function (Faker $faker) {
+    return [
+        'apellidoPaterno' => $faker->name,
+        'apellidoMaterno' => $faker->name,
+        'nombre' => $faker->name,
+        'password' => $faker->name,
+        'nombreCorto' => $faker->name,
+        'cargo' => $faker->name,
+        'area' => $faker->name,
+        'modulo01' => $faker->boolean,
+        'modulo02' => $faker->boolean,
+        'modulo03' => $faker->boolean,
+        'modulo04' => $faker->boolean,
+        'modulo05' => $faker->boolean,
+        'modulo06' => $faker->boolean,
+        'modulo07' => $faker->boolean,
+        'modulo08' => $faker->boolean,
+        'modulo09' => $faker->boolean,
+        'modulo10' => $faker->boolean
+    ];
+});

@@ -17,18 +17,18 @@ class CreateUnidadesTable extends Migration
             $table->Increments('id');
             $table->unsignedInteger('provedor');
             $table->foreign('provedor')->references('id')->on('provedores');
-            $table->string('nombre', 70);
-            $table->string('economico', 10);
-            $table->string('tipo', 20);
-            $table->string('marca', 20);
-            $table->string('modelo', 20);
-            $table->string('placas', 20);
-            $table->string('serie', 20);
-            $table->string('motor', 20);
+            $table->string('nombre');
+            $table->string('economico');
+            $table->string('tipo');
+            $table->string('marca');
+            $table->string('modelo');
+            $table->string('placas');
+            $table->string('serie');
+            $table->string('motor');
             $table->date('seguro');
             $table->date('verificacion');
             $table->date('fm');
-            $table->string('obs',100);
+            $table->string('obs');
             $table->timestamps();
         });
     }
