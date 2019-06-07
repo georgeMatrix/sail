@@ -1,9 +1,19 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @include('include.menu')
+        <div class=" card">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> NUEVO USUARIOS</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{route('usuarios.index')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center">Formulario de Usuarios <a href="{{url('/home')}}" class="mt-2 btn btn-primary float-right">Regresar</a></h1>
                 <form action="{{route('usuarios.store')}}" method="post" id="formUsuario">
                     {{csrf_field()}}
                     <div class="form-group">

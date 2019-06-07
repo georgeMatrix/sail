@@ -21,6 +21,12 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('fontawesome-free-5.9.0-web/css/all.min.css')}}">
+
+    <!-- Menu lateral -->
+    <link rel="stylesheet" href="{{asset('css/menu_lateral/icon-menu.css')}}">
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/dataPicker/bootstrap-datepicker.standalone.css')}}">

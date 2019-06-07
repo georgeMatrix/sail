@@ -1,32 +1,45 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @include('include.menu')
+        <div class=" card">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> LISTADO USUARIOS</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{route('usuarios.create')}}" class="mt-2 btn btn-success float-right"><i class="fas fa-user"></i> Nuevo Usuario</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{url('/home')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
-                <h1 class="mt-4">Listado de Usuarios <a href="{{route('usuarios.create')}}" class="mt-2 btn btn-success float-right">Nuevo Usuario</a><a href="{{url('/home')}}" class="mt-2 btn btn-primary float-right">Regresar</a></h1>
                 <table class="table table-responsive table-hover table-striped table table-sm">
                     <thead class="table-primary">
                     <tr>
-                        <th>id</th>
-                        <td>apellidoPaterno</td>
-                        <td>apellidoMaterno</td>
-                        <td>nombre</td>
-                        <td>password</td>
-                        <td>nombreCorto</td>
-                        <td>cargo</td>
-                        <td>area</td>
-                        <td>modulo01</td>
-                        <td>modulo02</td>
-                        <td>modulo03</td>
-                        <td>modulo04</td>
-                        <td>modulo05</td>
-                        <td>modulo06</td>
-                        <td>modulo07</td>
-                        <td>modulo08</td>
-                        <td>modulo09</td>
-                        <td>modulo10</td>
-                        <th>eliminar</th>
-                        <th>actualizar</th>
+                        <th>ID</th>
+                        <th>APELLIDO_PATERNO</th>
+                        <th>APELLIDO_MATERNO</th>
+                        <th>NOMBRE</th>
+                        <th>PASSWORD</th>
+                        <th>NOMBRE_CORTO</th>
+                        <th>CARGO</th>
+                        <th>AREA</th>
+                        <th>MODULO_01</th>
+                        <th>MODULO_02</th>
+                        <th>MODULO_03</th>
+                        <th>MODULO_04</th>
+                        <th>MODULO_05</th>
+                        <th>MODULO_06</th>
+                        <th>MODULO_07</th>
+                        <th>MODULO_08</th>
+                        <th>MODULO_09</th>
+                        <th>MODULO_10</th>
+                        <th>ELIMINAR</th>
+                        <th>ACTUALIZAR</th>
                     </tr>
                     </thead>
                     <tbody>

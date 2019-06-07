@@ -1,9 +1,20 @@
 @extends('layouts.app')
 @section('content')
+    <div class="container">
+        @include('include.menu')
+        <div class=" card">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="text-center text-danger"><i class="fas fa-user"></i> NUEVO CLIENTE</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{url('/home')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
 
-
-        <div class="col-md-6">
-            <h1 class="text-center">Formulario de Cliente <a href="{{url('/home')}}" class="mt-2 btn btn-primary float-right">Regresar</a></h1>
+        <div class="row">
+        <div class="col-md-12">
             <form action="{{route('clientes.store')}}" method="post">
                 {{csrf_field()}}
                 <div class="form-group">
@@ -153,4 +164,6 @@
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
+    </div>
+    </div>
 @endsection

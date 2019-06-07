@@ -1,9 +1,19 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @include('include.menu')
+        <div class=" card">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> ACTUALIZACION USUARIOS</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{route('usuarios.index')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
     <div class="row">
         <div class="col-md-12">
-            <h1>Actualizacion de Usuarios<a class="btn btn-primary float-right mt-3" href="{{route('usuarios.index')}}">Regresar a listado</a></h1>
             <form action="{{url('/usuarios/'.$usuario->id)}}" method="post">
                 {{csrf_field()}}
                 {{method_field('PATCH')}}

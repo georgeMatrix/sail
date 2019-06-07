@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Principal</div>
+                <div class="card-header">MENU PRINCIPAL</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -12,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @include('include.menu')
                         <table class="table">
                             <tr>
                                 <td><h2>Cliente</h2></td>

@@ -1,8 +1,20 @@
 @extends('layouts.app')
 @section('content')
+    <div class="container">
+        @include('include.menu')
+        <div class=" card">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> ACTUALIZACION CLIENTES</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{url('/home')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
+
     <div class="row">
         <div class="col-md-12">
-            <h1>Actualizacion de Cliente <a class="btn btn-primary float-right mt-3" href="{{route('clientes.index')}}">Regresar a listado</a></h1>
             <form action="{{url('/clientes/'.$cliente->id)}}" method="post">
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
@@ -38,8 +50,10 @@
                 <input type="text" name="dia_revision" id="dia_revision" class="form-control" value="{{$cliente->dia_revision}}">
                 <label for="">Dia Credito</label>
                 <input type="text" name="dia_credito" id="dia_credito" class="form-control" value="{{$cliente->dia_credito}}">
+                <br>
                 <button type="submit" class="btn btn-primary">Actualizar</button>
             </form>
         </div>
+    </div>
     </div>
 @endsection
