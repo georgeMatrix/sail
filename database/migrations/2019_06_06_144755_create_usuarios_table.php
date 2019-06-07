@@ -22,16 +22,16 @@ class CreateUsuariosTable extends Migration
             $table->string('nombreCorto');
             $table->string('cargo');
             $table->string('area');
-            $table->boolean('modulo01');
-            $table->boolean('modulo02');
-            $table->boolean('modulo03');
-            $table->boolean('modulo04');
-            $table->boolean('modulo05');
-            $table->boolean('modulo06');
-            $table->boolean('modulo07');
-            $table->boolean('modulo08');
-            $table->boolean('modulo09');
-            $table->boolean('modulo10');
+            $table->boolean('modulo01')->default(0);
+            $table->boolean('modulo02')->default(0);
+            $table->boolean('modulo03')->default(0);
+            $table->boolean('modulo04')->default(0);
+            $table->boolean('modulo05')->default(0);
+            $table->boolean('modulo06')->default(0);
+            $table->boolean('modulo07')->default(0);
+            $table->boolean('modulo08')->default(0);
+            $table->boolean('modulo09')->default(0);
+            $table->boolean('modulo10')->default(0);
             $table->timestamps();
         });
     }
