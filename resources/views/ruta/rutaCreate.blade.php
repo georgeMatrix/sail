@@ -219,7 +219,7 @@
                                 <input type="hidden" name="token" id="tokenFormDfacturacion" value="{{csrf_token()}}">
                                 <div class="form-group">
                                     <label for="">Rutas</label>
-                                    <select name="rutas" id="rutas" class="form-control">
+                                    <select name="rutas" id="rutasSelect" class="form-control">
                                         @foreach($rutas as $ruta)
                                             <option value="{{$ruta->id}}">{{$ruta->nombre}}</option>
                                         @endforeach
@@ -403,6 +403,17 @@
                     $("#guardarRutasBtn").addClass('btn-success');
                     $("#guardarRutasBtn").attr("disabled", true);
                     $("#guardarRutasBtn").html('Dato Guardado');
+
+                    $.get('/api/uno', function (data) {
+                        //<option value="">Seleccione nivel</option>
+                        var html_select = '';
+                        for (var i=0; i<data.length; i++){
+                            html_select += '<option value=">'+data[i].id+'">'+data[i].nombre+'</option>';
+                        }
+                        $("#rutasSelect").html(html_select)
+
+                    })
+
                 })
                 .fail(function() {
                     console.log("error");
@@ -411,7 +422,7 @@
 
         $("#dFacturacionForm").submit(function(e){
             e.preventDefault();
-            var rutas = $("#rutas").val();
+            var rutas = $("#rutasSelect").val();
             var claveProdServ = $("#claveProdServ").val();
             var noIdentificacion = $("#noIdentificacion").val();
             var cantidad = $("#cantidadDfacturacion").val();

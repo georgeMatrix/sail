@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class RutasController extends Controller
 {
+    public function datosSelect(){
+        return Rutas::all();
+    }
     /**
      * Display a listing of the resource.
      *
