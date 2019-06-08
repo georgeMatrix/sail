@@ -2,13 +2,13 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class="card bg-dark">
             <div class="row">
-                <div class="col-md-9">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> ACTUALIZACION USUARIOS</h1>
+                <div class="col-md-9 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class="fa fa-user-circle fa-md text-danger"></i> ACTUALIZACION USUARIOS</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('usuarios.index')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{route('usuarios.index')}}" class="mt-3 mr-3 btn btn-info float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
@@ -17,20 +17,20 @@
             <form action="{{url('/usuarios/'.$usuario->id)}}" method="post">
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
-                <label for="">Apellido Paterno</label>
-                <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" value="{{$usuario->apellidoPaterno}}">
-                <label for="">apellidoMaterno</label>
-                <input type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control"  value="{{$usuario->apellidoMaterno}}">
-                <label for="">nombre</label>
-                <input type="text" name="nombre" id="nombre" class="form-control"  value="{{$usuario->nombre}}">
-                <label for="">password</label>
-                <input type="text" name="password" id="password" class="form-control"  value="{{$usuario->password}}">
-                <label for="">nombreCorto</label>
-                <input type="text" name="nombreCorto" id="nombreCorto" class="form-control"  value="{{$usuario->nombreCorto}}">
-                <label for="">cargo</label>
-                <input type="text" name="cargo" id="cargo" class="form-control"  value="{{$usuario->cargo}}">
-                <label for="">Area</label>
-                <input type="text" name="area" id="area" class="form-control"  value="{{$usuario->area}}">
+                <h5 for="">Apellido Paterno</h5>
+                <input maxlength="20" type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" value="{{$usuario->apellidoPaterno}}">
+                <h5 for="">Apellido Materno</h5>
+                <input maxlength="20" type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control"  value="{{$usuario->apellidoMaterno}}">
+                <h5 for="">Nombre</h5>
+                <input maxlength="50" type="text" name="nombre" id="nombre" class="form-control"  value="{{$usuario->nombre}}">
+                <h5 for="">Password</h5>
+                <input maxlength="8" type="text" name="password" id="password" class="form-control"  value="{{$usuario->password}}">
+                <h5 for="">Nombre Corto</h5>
+                <input maxlength="20" type="text" name="nombreCorto" id="nombreCorto" class="form-control"  value="{{$usuario->nombreCorto}}">
+                <h5 for="">Cargo</h5>
+                <input maxlength="20" type="text" name="cargo" id="cargo" class="form-control"  value="{{$usuario->cargo}}">
+                <h5 for="">Area</h5>
+                <input maxlength="20" type="text" name="area" id="area" class="form-control"  value="{{$usuario->area}}">
                 <br>
                 <div class="form-group">
                     <label>Modulo01</label>
@@ -120,7 +120,7 @@
                 </div>
                 <input type="hidden" name="hidden_gender" id="hidden_gender" value="1" />-->
 
-                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="submit" class="btn btn-info">Actualizar</button>
             </form>
         </div>
     </div>

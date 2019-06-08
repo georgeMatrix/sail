@@ -18,7 +18,6 @@ class CreateRutasTable extends Migration
             $table->unsignedInteger('clientes');
             $table->foreign('clientes')->references('id')->on('clientes');
             $table->string('nombre');
-            $table->string('cliente');
             $table->string('lugar_exp');
             $table->string('origen');
             $table->string('remitente');

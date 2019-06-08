@@ -2,23 +2,24 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class="card bg-dark">
             <div class="row">
-                <div class="col-md-6">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> LISTADO CLIENTES</h1>
+                <div class="col-md-6 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class="fa fa-map-marked fa-lg text-danger"></i> LISTADO CLIENTES</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('clientes.create')}}" class="mt-2 btn btn-success float-right"><i class="fas fa-user"></i> Nuevo Cliente</a>
+                    <a href="{{route('clientes.create')}}" class="mt-3 btn btn-info float-right"><i class="fas fa-user"></i> Nuevo Cliente</a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{url('/home')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{url('/home')}}" class="mt-3 mr-3 btn btn-info float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-responsive table-hover table-sm">
-                    <thead class="table-primary">
+                <div class="table-responsive">
+                    <table class="table table-hover table-sm table-striped">
+                    <thead class="table-info">
                     <tr>
                         <th>ID</th>
                         <th>NOMBRE</th>
@@ -37,8 +38,8 @@
                         <th>MAIL_2</th>
                         <th>DIA_DE_REVISION</th>
                         <th>DIA_DE_CREDITO</th>
-                        <th>ELIMINAR</th>
-                        <th>EDITAR</th>
+                        <th>ELIMINAR_REGISTRO</th>
+                        <th>EDITAR_REGISTRO</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -65,16 +66,17 @@
                                 <form method="post" action="{{url('/clientes/'.$cliente->id)}}">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
-                                    <button type="submit" onclick="return confirm('Eliminar');" class="btn btn-danger">Eliminar</button>
+                                    <button type="submit" onclick="return confirm('Eliminar');" class="btn btn-danger"><i class="far fa-trash-alt"></i> Eliminar</button>
                                 </form>
                             </td>
                             <td>
-                                <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-primary">Editar</a>
+                                <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-primary"><i class="far fa-edit"></i> Editar</a>
                             </td>
                         </tr>
                     </tbody>
                     @endforeach
                 </table>
+                </div>
                 {{$clientes->render()}}
             </div>
         </div>

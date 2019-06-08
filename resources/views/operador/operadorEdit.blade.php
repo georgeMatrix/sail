@@ -2,13 +2,13 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class="card bg-dark">
             <div class="row">
-                <div class="col-md-9">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> ACTUALIZACION OPERADOR</h1>
+                <div class="col-md-9 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class=" text-danger far fa-id-card"></i> ACTUALIZACION OPERADOR</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('operadores.index')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{route('operadores.index')}}" class="mt-3 mr-3 btn btn-info float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
@@ -18,24 +18,24 @@
                 <form action="{{url('/operadores/'.$operador->id)}}" method="post">
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
-                    <label for="">Apellido paterno</label>
-                    <input type="text" name="apellido_paterno" id="apellido_paterno" class="form-control" value="{{$operador->apellido_paterno}}">
-                    <label for="">Apellido Materno</label>
-                    <input type="text" name="apellido_materno" id="apellido_materno" class="form-control"  value="{{$operador->apellido_materno}}">
-                    <label for="">Nombres</label>
-                    <input type="text" name="nombres" id="nombres" class="form-control"  value="{{$operador->nombres}}">
-                    <label for="">Nombre corto</label>
-                    <input type="text" name="nombre_corto" id="nombre_corto" class="form-control"  value="{{$operador->nombre_corto}}">
-                    <label for="">Licencia</label>
-                    <input type="text" name="licencia" id="licencia" class="form-control"  value="{{$operador->licencia}}">
-                    <label for="">Vigencia licencia</label>
+                    <h5 for="">Apellido paterno</h5>
+                    <input maxlength="20" type="text" name="apellido_paterno" id="apellido_paterno" class="form-control" value="{{$operador->apellido_paterno}}">
+                    <h5 for="">Apellido Materno</h5>
+                    <input maxlength="20" type="text" name="apellido_materno" id="apellido_materno" class="form-control"  value="{{$operador->apellido_materno}}">
+                    <h5 for="">Nombres</h5>
+                    <input maxlength="50" type="text" name="nombres" id="nombres" class="form-control"  value="{{$operador->nombres}}">
+                    <h5 for="">Nombre corto</h5>
+                    <input maxlength="20" type="text" name="nombre_corto" id="nombre_corto" class="form-control"  value="{{$operador->nombre_corto}}">
+                    <h5 for="">Licencia</h5>
+                    <input maxlength="20" type="text" name="licencia" id="licencia" class="form-control"  value="{{$operador->licencia}}">
+                    <h5 for="">Vigencia licencia</h5>
                     <input type="text" readonly name="vigencia_licencia" id="vigencia_licencia" class="form-control"  value="{{$operador->vigencia_licencia}}">
-                    <label for="">Vigencia medico</label>
+                    <h5 for="">Vigencia medico</h5>
                     <input type="text" readonly name="vigencia_medico" id="vigencia_medico" class="form-control"  value="{{$operador->vigencia_medico}}">
-                    <label for="">Obs</label>
-                    <input type="text" name="obs" id="obs" class="form-control"  value="{{$operador->obs}}">
+                    <h5 for="">Obs</h5>
+                    <input maxlength="100" type="text" name="obs" id="obs" class="form-control"  value="{{$operador->obs}}">
                     <br>
-                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="submit" class="btn btn-info"><i class="far fa-edit"></i> Actualizar</button>
                 </form>
             </div>
         </div>

@@ -2,13 +2,13 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class=" card bg-dark">
             <div class="row">
-                <div class="col-md-9">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> NUEVO OPERADOR</h1>
+                <div class="col-md-9 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class=" text-danger far fa-id-card"></i> NUEVO OPERADOR</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('operadores.index')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{route('operadores.index')}}" class="mt-3 mr-3 btn btn-info float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
@@ -17,8 +17,8 @@
                 <form action="{{route('operadores.store')}}" method="post">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label for="">Apellido paterno</label>
-                        <input type="text" name="apellido_paterno" id="apellido_paterno" class="form-control {{$errors->has('apellido_paterno')?'is-invalid':''}}"
+                        <h5 for="">Apellido paterno</h5>
+                        <input maxlength="20" type="text" name="apellido_paterno" id="apellido_paterno" class="form-control {{$errors->has('apellido_paterno')?'is-invalid':''}}"
                                value="{{old('apellido_paterno')}}">
                         <div class="invalid-feedback">
                             El apellido paterno es requerido
@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Apellido materno</label>
-                        <input type="text" name="apellido_materno" id="apellido_materno" class="form-control {{$errors->has('apellido_materno')?'is-invalid':''}}"
+                        <h5 for="">Apellido materno</h5>
+                        <input maxlength="20" type="text" name="apellido_materno" id="apellido_materno" class="form-control {{$errors->has('apellido_materno')?'is-invalid':''}}"
                                value="{{old('apellido_materno')}}">
                         <div class="invalid-feedback">
                             El apellido materno es requerido
@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Nombres</label>
-                        <input type="text" name="nombres" id="nombres" class="form-control {{$errors->has('nombres')?'is-invalid':''}}"
+                        <h5 for="">Nombres</h5>
+                        <input maxlength="50" type="text" name="nombres" id="nombres" class="form-control {{$errors->has('nombres')?'is-invalid':''}}"
                                value="{{old('nombres')}}">
                         <div class="invalid-feedback">
                             El campo nombres es requerido
@@ -44,8 +44,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Nombre corto</label>
-                        <input type="text" name="nombre_corto" id="nombre_corto" class="form-control {{$errors->has('nombre_corto')?'is-invalid':''}}"
+                        <h5 for="">Nombre corto</h5>
+                        <input maxlength="20" type="text" name="nombre_corto" id="nombre_corto" class="form-control {{$errors->has('nombre_corto')?'is-invalid':''}}"
                                value="{{old('nombre_corto')}}">
                         <div class="invalid-feedback">
                             El campo nombre corto es requerido
@@ -53,8 +53,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Licencia</label>
-                        <input type="text" name="licencia" id="licencia" class="form-control {{$errors->has('licencia')?'is-invalid':''}}"
+                        <h5 for="">Licencia</h5>
+                        <input maxlength="20" type="text" name="licencia" id="licencia" class="form-control {{$errors->has('licencia')?'is-invalid':''}}"
                                value="{{old('licencia')}}">
                         <div class="invalid-feedback">
                             La licencia es requerido
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Vigencia licencia</label>
+                        <h5 for="">Vigencia licencia</h5>
                         <!-- <input type="text" class="form-control" id="datapicker">-->
                         <input type="text" readonly name="vigencia_licencia" id="vigencia_licencia" class="form-control {{$errors->has('vigencia_licencia')?'is-invalid':''}}"
                                value="{{old('vigencia_licencia')}}">
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Vigencia Medico</label>
+                        <h5 for="">Vigencia Medico</h5>
                         <input type="text" readonly name="vigencia_medico" id="vigencia_medico" class="form-control {{$errors->has('vigencia_medico')?'is-invalid':''}}"
                                value="{{old('vigencia_medico')}}">
                         <div class="invalid-feedback">
@@ -81,15 +81,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Obs</label>
-                        <input type="text" name="obs" id="obs" class="form-control {{$errors->has('obs')?'is-invalid':''}}"
+                        <h5 for="">Obs</h5>
+                        <input maxlength="100" type="text" name="obs" id="obs" class="form-control {{$errors->has('obs')?'is-invalid':''}}"
                                value="{{old('obs')}}">
                         <div class="invalid-feedback">
                             El campo obs es requerido
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-info"><i class="far fa-save"></i> Guardar</button>
                 </form>
             </div>
         </div>

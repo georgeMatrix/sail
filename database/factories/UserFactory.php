@@ -77,7 +77,6 @@ $factory->define(\App\Rutas::class, function (Faker $faker) {
     return [
         'clientes' => $faker->numberBetween(1,10),
         'nombre' => $faker->name,
-        'cliente' => $faker->name,
         'lugar_exp' => $faker->name,
         'origen' => $faker->name,
         'remitente' => $faker->name,

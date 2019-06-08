@@ -2,23 +2,24 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class="card bg-dark">
             <div class="row">
-                <div class="col-md-6">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> LISTADO UNIDADES</h1>
+                <div class="col-md-6 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class="fa fa-truck fa-md text-danger"></i> LISTADO UNIDADES</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('unidades.create')}}" class="mt-2 btn btn-success float-right"><i class="fas fa-user"></i> Nueva Unidad</a>
+                    <a href="{{route('unidades.create')}}" class="mt-3 btn btn-info float-right"><i class="fas fa-user"></i> Nueva Unidad</a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{url('/home')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{url('/home')}}" class="mt-3 mr-3 btn btn-info float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-responsive table-hover table-sm">
-                    <thead class="table-primary">
+                <div class="table-responsive">
+                    <table class="table table-hover table-sm table-striped">
+                    <thead class="table-info">
                     <tr>
                         <th>ID</th>
                         <th>PROVEEDOR</th>
@@ -34,8 +35,8 @@
                         <th>VERIFICACION</th>
                         <th>FM</th>
                         <th>OBS</th>
-                        <th>ELIMINAR</th>
-                        <th>ACTUALIZAR</th>
+                        <th>ELIMINAR_REGISTRO</th>
+                        <th>ACTUALIZAR_REGISTRO</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,16 +60,17 @@
                                 <form method="post" action="{{url('/unidades/'.$unidad->id)}}">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
-                                    <button type="submit" onclick="return confirm('Eliminar');" class="btn btn-danger">Eliminar</button>
+                                    <button type="submit" onclick="return confirm('Eliminar');" class="btn btn-danger"><i class="far fa-trash-alt"></i> Eliminar</button>
                                 </form>
                             </td>
                             <td>
-                                <a href="{{url('/unidades/'.$unidad->id.'/edit')}}" class="btn btn-primary">Editar</a>
+                                <a href="{{url('/unidades/'.$unidad->id.'/edit')}}" class="btn btn-primary"><i class="far fa-edit"></i>Editar</a>
                             </td>
                         </tr>
                     </tbody>
                     @endforeach
                 </table>
+                </div>
                 {{$unidades->render()}}
             </div>
         </div>

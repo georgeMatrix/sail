@@ -27,39 +27,39 @@
             <ul>
                 <li class="lightli">
                     <a href="{{route('clientes.index')}}">
-                        <i class="fa fa-users fa-lg"></i>
+                        <i class="fa fa-users fa-lg text-danger"></i>
                         <span class="nav-text">CLIENTES</span>
                     </a>
                 </li>
                 <li class="lightli">
                     <a href="{{route('operadores.index')}}">
-                        <i class="fa fa-id-card fa-lg"></i>
+                        <i class="fa fa-id-card fa-lg text-danger"></i>
                         <span class="nav-text">OPERADORES</span>
                     </a>
                 </li>
                 <li class="lightli">
                     <a href="{{route('provedores.index')}}">
-                        <i class="fa fa-box-open fa-lg"></i>
+                        <i class="fa fa-box-open fa-lg text-danger"></i>
                         <span class="nav-text">PROVEDORES</span>
                     </a>
                 </li>
                 <li class="lightli">
                     <a href="{{route('unidades.index')}}">
-                        <i class="fa fa-truck fa-lg"></i>
+                        <i class="fa fa-truck fa-lg text-danger"></i>
                         <span class="nav-text">UNIDADES</span>
                     </a>
                 </li>
 
                 <li class="lightli">
                     <a href="{{route('usuarios.index')}}">
-                        <i class="fa fa-user-circle fa-lg"></i>
+                        <i class="fa fa-user-circle fa-lg text-danger"></i>
                         <span class="nav-text">USUARIOS</span>
                     </a>
                 </li>
 
                 <li class="lightli">
                     <a href="{{route('rutas.index')}}">
-                        <i class="fa fa-map-marked fa-lg"></i>
+                        <i class="fa fa-map-marked fa-lg text-danger"></i>
                         <span class="nav-text">RUTAS</span>
                     </a>
                 </li>

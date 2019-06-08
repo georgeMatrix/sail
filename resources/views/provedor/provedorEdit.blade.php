@@ -2,13 +2,13 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class="card bg-dark">
             <div class="row">
-                <div class="col-md-9">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> ACTUALIZACION PROVEEDORES</h1>
+                <div class="col-md-9 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class="text-danger fa fa-box-open fa-md text-danger"></i> ACTUALIZACION PROVEEDORES</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('provedores.index')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{route('provedores.index')}}" class="mt-3 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
@@ -17,22 +17,22 @@
                 <form action="{{url('/provedores/'.$provedor->id)}}" method="post">
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
-                    <label for="">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" value="{{$provedor->nombre}}">
-                    <label for="">Razon social</label>
-                    <input type="text" name="razon_social" id="razon_social" class="form-control"  value="{{$provedor->razon_social}}">
-                    <label for="">Rfc</label>
-                    <input type="text" name="rfc" id="rfc" class="form-control"  value="{{$provedor->rfc}}">
-                    <label for="">Direccion</label>
-                    <input type="text" name="direccion" id="direccion" class="form-control"  value="{{$provedor->direccion}}">
-                    <label for="">Contacto</label>
-                    <input type="text" name="contacto" id="contacto" class="form-control"  value="{{$provedor->contacto}}">
-                    <label for="">Mail</label>
-                    <input type="text" name="mail" id="mail" class="form-control"  value="{{$provedor->mail}}">
-                    <label for="">Credito</label>
-                    <input type="text" name="credito" id="credito" class="form-control"  value="{{$provedor->credito}}">
-                    <label for="">Saldo</label>
-                    <input type="text" name="saldo" id="saldo" class="form-control"  value="{{$provedor->saldo}}">
+                    <h5 for="">Nombre</h5>
+                    <input maxlength="70" type="text" name="nombre" id="nombre" class="form-control" value="{{$provedor->nombre}}">
+                    <h5 for="">Razon social</h5>
+                    <input maxlength="70" type="text" name="razon_social" id="razon_social" class="form-control"  value="{{$provedor->razon_social}}">
+                    <h5 for="">Rfc</h5>
+                    <input maxlength="11" type="text" name="rfc" id="rfc" class="form-control"  value="{{$provedor->rfc}}">
+                    <h5 for="">Direccion</h5>
+                    <input maxlength="100" type="text" name="direccion" id="direccion" class="form-control"  value="{{$provedor->direccion}}">
+                    <h5 for="">Contacto</h5>
+                    <input maxlength="50" type="text" name="contacto" id="contacto" class="form-control"  value="{{$provedor->contacto}}">
+                    <h5 for="">Mail</h5>
+                    <input maxlength="50" type="email" name="mail" id="mail" class="form-control"  value="{{$provedor->mail}}">
+                    <h5 for="">Credito</h5>
+                    <input type="number" name="credito" id="credito" class="form-control"  value="{{$provedor->credito}}">
+                    <h5 for="">Saldo</h5>
+                    <input type="number" name="saldo" id="saldo" class="form-control"  value="{{$provedor->saldo}}">
                     <br>
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clientes;
+use App\DatosFacturacion;
 use App\Rutas;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class RutasController extends Controller
      */
     public function index()
     {
+        $datosF = DatosFacturacion::orderBy('id', 'DESC')->paginate(10);
         $rutas = Rutas::orderBy('id', 'DESC')->paginate(10);
-        return view('ruta/rutas')->with('rutas' , $rutas);
+        return view('ruta/rutas')->with('rutas' , $rutas)->with('datosF' , $datosF);
     }
 
     /**
@@ -26,8 +28,9 @@ class RutasController extends Controller
      */
     public function create()
     {
+        $rutas = Rutas::all();
         $clientes = Clientes::all();
-        return view('ruta/rutaCreate')->with('clientes',$clientes);
+        return view('ruta/rutaCreate')->with('clientes',$clientes)->with('rutas' ,$rutas);;
     }
 
     /**
@@ -41,7 +44,6 @@ class RutasController extends Controller
         $campos = [
             'clientes' => 'required|numeric',
             'nombre' => 'required',
-            'cliente' => 'required',
             'lugar_exp' => 'required',
             'origen' => 'required',
             'remitente' => 'required',

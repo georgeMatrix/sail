@@ -2,13 +2,13 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class="card bg-dark">
             <div class="row">
-                <div class="col-md-9">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> ACTUALIZACION UNIDADES</h1>
+                <div class="col-md-9 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class="fa fa-truck fa-md text-danger"></i> ACTUALIZACION UNIDADES</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('unidades.index')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{route('unidades.index')}}" class="mt-3 mr-3 btn btn-info float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
 
-                    <label for="">Provedor</label>
+                    <h5 for="">Provedor</h5>
                     <select name="provedor" id="provedor" class="form-control">
                         @foreach($provedores as $provedor)
                             @if($provedor->id == $unidad->provedor)
@@ -28,32 +28,32 @@
                             @endif
                         @endforeach
                     </select>
-                    <label for="">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control"  value="{{$unidad->nombre}}">
-                    <label for="">Economico</label>
-                    <input type="text" name="economico" id="economico" class="form-control"  value="{{$unidad->economico}}">
-                    <label for="">Tipo</label>
-                    <input type="text" name="tipo" id="tipo" class="form-control"  value="{{$unidad->tipo}}">
-                    <label for="">Marca</label>
-                    <input type="text" name="marca" id="marca" class="form-control"  value="{{$unidad->marca}}">
-                    <label for="">Modelo</label>
-                    <input type="text" name="modelo" id="modelo" class="form-control"  value="{{$unidad->modelo}}">
-                    <label for="">Placas</label>
-                    <input type="text" name="placas" id="placas" class="form-control"  value="{{$unidad->placas}}">
-                    <label for="">Serie</label>
-                    <input type="text" name="serie" id="serie" class="form-control"  value="{{$unidad->serie}}">
-                    <label for="">Motor</label>
-                    <input type="text" name="motor" id="motor" class="form-control"  value="{{$unidad->motor}}">
-                    <label for="">Seguro</label>
+                    <h5 for="">Nombre</h5>
+                    <input maxlength="70" type="text" name="nombre" id="nombre" class="form-control"  value="{{$unidad->nombre}}">
+                    <h5 for="">Economico</h5>
+                    <input maxlength="10" type="text" name="economico" id="economico" class="form-control"  value="{{$unidad->economico}}">
+                    <h5 for="">Tipo</h5>
+                    <input maxlength="20" type="text" name="tipo" id="tipo" class="form-control"  value="{{$unidad->tipo}}">
+                    <h5 for="">Marca</h5>
+                    <input maxlength="20" type="text" name="marca" id="marca" class="form-control"  value="{{$unidad->marca}}">
+                    <h5 for="">Modelo</h5>
+                    <input maxlength="20" type="text" name="modelo" id="modelo" class="form-control"  value="{{$unidad->modelo}}">
+                    <h5 for="">Placas</h5>
+                    <input maxlength="20" type="text" name="placas" id="placas" class="form-control"  value="{{$unidad->placas}}">
+                    <h5 for="">Serie</h5>
+                    <input maxlength="30" type="text" name="serie" id="serie" class="form-control"  value="{{$unidad->serie}}">
+                    <h5 for="">Motor</h5>
+                    <input maxlength="30" type="text" name="motor" id="motor" class="form-control"  value="{{$unidad->motor}}">
+                    <h5 for="">Seguro</h5>
                     <input type="text" readonly name="seguro" id="seguro" class="form-control"  value="{{$unidad->seguro}}">
-                    <label for="">Verificacion</label>
+                    <h5 for="">Verificacion</h5>
                     <input type="text" readonly name="verificacion" id="verificacion" class="form-control"  value="{{$unidad->verificacion}}">
-                    <label for="">Fm</label>
+                    <h5 for="">Fm</h5>
                     <input type="text" readonly name="fm" id="fm" class="form-control"  value="{{$unidad->fm}}">
-                    <label for="">Obs</label>
-                    <input type="text" name="obs" id="obs" class="form-control"  value="{{$unidad->obs}}">
+                    <h5 for="">Obs</h5>
+                    <input maxlength="100" type="text" name="obs" id="obs" class="form-control"  value="{{$unidad->obs}}">
                     <br>
-                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="submit" class="btn btn-info">Actualizar</button>
                 </form>
             </div>
         </div>

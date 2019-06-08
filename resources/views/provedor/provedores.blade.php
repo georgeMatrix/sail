@@ -2,23 +2,23 @@
 @section('content')
     <div class="container">
         @include('include.menu')
-        <div class=" card">
+        <div class="card bg-dark">
             <div class="row">
-                <div class="col-md-6">
-                    <h1 class="text-center text-danger"><i class="fas fa-users"></i> LISTADO PROVEEDORES</h1>
+                <div class="col-md-6 card-title">
+                    <h3 style="font-size: 20pt;" class="mt-3 text-center text-white"><i class="text-danger fa fa-box-open fa-md text-danger"></i> LISTADO PROVEEDORES</h3>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('provedores.create')}}" class="mt-2 btn btn-success float-right"><i class="fas fa-user"></i> Nuevo Proveedor</a>
+                    <a href="{{route('provedores.create')}}" class="mt-3 btn btn-info float-right"><i class="fas fa-user"></i> Nuevo Proveedor</a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{url('/home')}}" class="mt-2 mr-3 btn btn-primary float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
+                    <a href="{{url('/home')}}" class="mt-3 mr-3 btn btn-info float-right"><i class="fas fa-arrow-circle-left"></i> Regresar</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-responsive table-hover table-sm">
-                    <thead class="table-primary">
+                    <thead class="table-info">
                     <tr>
                         <th>ID</th>
                         <th>NOMBRE</th>
@@ -29,8 +29,8 @@
                         <th>MAIL</th>
                         <th>CREDITO</th>
                         <th>SALDO</th>
-                        <th>ELIMINAR</th>
-                        <th>EDITAR</th>
+                        <th>ELIMINAR_REGISTRO</th>
+                        <th>EDITAR_REGISTRO</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,11 +49,11 @@
                                 <form method="post" action="{{url('/provedores/'.$provedor->id)}}">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
-                                    <button type="submit" onclick="return confirm('Eliminar');" class="btn btn-danger">Eliminar</button>
+                                    <button type="submit" onclick="return confirm('Eliminar');" class="btn btn-danger"><i class="far fa-trash-alt"></i> Eliminar</button>
                                 </form>
                             </td>
                             <td>
-                                <a href="{{url('/provedores/'.$provedor->id.'/edit')}}" class="btn btn-primary">Editar</a>
+                                <a href="{{url('/provedores/'.$provedor->id.'/edit')}}" class="btn btn-primary"><i class="far fa-edit"></i> Editar</a>
                             </td>
                         </tr>
                     </tbody>

@@ -14,43 +14,50 @@
                         </div>
                     @endif
                     @include('include.menu')
-                        <table class="table">
+                        <div class="table-responsive">
+                        <table class="table table-hover table-sm">
+                            <thead>
+                            <th>Seccion</th>
+                            <th>Listado</th>
+                            <th>Nuevo</th>
+                            </thead>
                             <tr>
                                 <td><h2>Cliente</h2></td>
-                                <td><a href="{{route('clientes.index')}}" class="btn btn-primary">Listado Clientes</a></td>
-                                <td><a href="{{route('clientes.create')}}" class="btn btn-primary">Nuevo Cliente</a></td>
+                                <td><a href="{{route('clientes.index')}}" class="btn btn-info btn-block">Listado Clientes</a></td>
+                                <td><a href="{{route('clientes.create')}}" class="btn btn-info btn-block">Nuevo Cliente</a></td>
                             </tr>
                             <tr>
                                 <td><h2>Operadores</h2></td>
-                                <td><a href="{{route('operadores.index')}}" class="btn btn-primary">Listado Operadores</a></td>
-                                <td><a href="{{route('operadores.create')}}" class="btn btn-primary">Nuevo Operador</a></td>
+                                <td><a href="{{route('operadores.index')}}" class="btn btn-info btn-block">Listado Operadores</a></td>
+                                <td><a href="{{route('operadores.create')}}" class="btn btn-info btn-block">Nuevo Operador</a></td>
                             </tr>
                             <tr>
                                 <td><h2>Provedores</h2></td>
-                                <td><a href="{{route('provedores.index')}}" class="btn btn-primary">Listado Provedores</a></td>
-                                <td><a href="{{route('provedores.create')}}" class="btn btn-primary">Nuevo Provedor</a></td>
+                                <td><a href="{{route('provedores.index')}}" class="btn btn-info btn-block">Listado Provedores</a></td>
+                                <td><a href="{{route('provedores.create')}}" class="btn btn-info btn-block">Nuevo Provedor</a></td>
                             </tr>
                             <tr>
                                 <td><h2>Rutas</h2></td>
-                                <td><a href="{{route('rutas.index')}}" class="btn btn-primary">Listado Rutas</a></td>
-                                <td><a href="{{route('rutas.create')}}" class="btn btn-primary">Nuevo Rutas</a></td>
+                                <td><a href="{{route('rutas.index')}}" class="btn btn-info btn-block">Listado Rutas</a></td>
+                                <td><a href="{{route('rutas.create')}}" class="btn btn-info btn-block">Nuevo Rutas</a></td>
                             </tr>
                             <tr>
                                 <td><h2>Unidades</h2></td>
-                                <td><a href="{{route('unidades.index')}}" class="btn btn-primary">Listado Unidades</a></td>
-                                <td><a href="{{route('unidades.create')}}" class="btn btn-primary">Nuevo Unidad</a></td>
+                                <td><a href="{{route('unidades.index')}}" class="btn btn-info btn-block">Listado Unidades</a></td>
+                                <td><a href="{{route('unidades.create')}}" class="btn btn-info btn-block">Nuevo Unidad</a></td>
                             </tr>
                             <tr>
                                 <td><h2>Datos de Facturacion</h2></td>
-                                <td><a href="{{route('datosFacturacions.index')}}" class="btn btn-primary">Listado Facturacion</a></td>
-                                <td><a href="{{route('datosFacturacions.create')}}" class="btn btn-primary">Nuevos Datos de Facturacion</a></td>
+                                <td><a href="{{route('datosFacturacions.index')}}" class="btn btn-info btn-block">Listado Facturacion</a></td>
+                                <td><a href="{{route('datosFacturacions.create')}}" class="btn btn-info btn-block">Nuevos Datos de Facturacion</a></td>
                             </tr>
                             <tr>
                                 <td><h2>Usuarios</h2></td>
-                                <td><a href="{{route('usuarios.index')}}" class="btn btn-primary">Listado Usuarios</a></td>
-                                <td><a href="{{route('usuarios.create')}}" class="btn btn-primary">Nuevos Usuarios</a></td>
+                                <td><a href="{{route('usuarios.index')}}" class="btn btn-info btn-block">Listado Usuarios</a></td>
+                                <td><a href="{{route('usuarios.create')}}" class="btn btn-info btn-block">Nuevos Usuarios</a></td>
                             </tr>
                         </table>
+                        </div>
                 </div>
             </div>
         </div>
