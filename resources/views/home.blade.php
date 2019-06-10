@@ -47,11 +47,6 @@
                                 <td><a href="{{route('unidades.create')}}" class="btn btn-info btn-block">Nuevo Unidad</a></td>
                             </tr>
                             <tr>
-                                <td><h2>Datos de Facturacion</h2></td>
-                                <td><a href="{{route('datosFacturacions.index')}}" class="btn btn-info btn-block">Listado Facturacion</a></td>
-                                <td><a href="{{route('datosFacturacions.create')}}" class="btn btn-info btn-block">Nuevos Datos de Facturacion</a></td>
-                            </tr>
-                            <tr>
                                 <td><h2>Usuarios</h2></td>
                                 <td><a href="{{route('usuarios.index')}}" class="btn btn-info btn-block">Listado Usuarios</a></td>
                                 <td><a href="{{route('usuarios.create')}}" class="btn btn-info btn-block">Nuevos Usuarios</a></td>
