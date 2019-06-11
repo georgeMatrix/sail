@@ -76,6 +76,7 @@ $factory->define(\App\Operadores::class, function (Faker $faker) {
 $factory->define(\App\Rutas::class, function (Faker $faker) {
     return [
         'clientes' => $faker->numberBetween(1,10),
+        'facturador' => $faker->numberBetween(1,10),
         'nombre' => $faker->name,
         'lugar_exp' => $faker->name,
         'origen' => $faker->name,
@@ -93,6 +94,8 @@ $factory->define(\App\Rutas::class, function (Faker $faker) {
         'concepto' => $faker->name,
         'material_peligroso' => $faker->name,
         'indemnizacion' => $faker->name,
+        'importe' => $faker->numberBetween(1,10),
+        'asignacion_precio' => $faker->numberBetween(1,10),
         'obs' => $faker->name,
         'dias_re' => $faker->numberBetween(1,5),
     ];
@@ -119,6 +122,7 @@ $factory->define(\App\Unidades::class, function (Faker $faker) {
 $factory->define(\App\DatosFacturacion::class, function (Faker $faker) {
     return [
         'rutas' => $faker->numberBetween(1,10),
+        'asignacionPrecio' => $faker->numberBetween(1,50),
         'claveProdServ' => $faker->name,
         'noIdentificacion' => $faker->name,
         'cantidad' => $faker->numberBetween(1000,1500),

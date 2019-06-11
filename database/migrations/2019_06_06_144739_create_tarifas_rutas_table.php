@@ -14,7 +14,7 @@ class CreateTarifasRutasTable extends Migration
     public function up()
     {
         Schema::create('tarifas_rutas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->timestamps();
         });
     }

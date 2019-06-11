@@ -32,7 +32,7 @@
                                 <input type="hidden" name="token" id="tokenFormRutas" value="{{csrf_token()}}">
 
                                 <div class="form-group">
-                                    <h5 for="">Nombre</h5>
+                                    <h5 for="">Nombre de ruta</h5>
                                     <input maxlength="20" required type="text" name="nombre" id="nombre" class="form-control {{$errors->has('nombre')?'is-invalid':''}}"
                                            value="{{old('nombre')}}">
                                     <div class="invalid-feedback">
@@ -50,7 +50,16 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">lugar_exp</h5>
+                                    <h5 for="">Razon social que factura</h5>
+                                    <input required type="number" min="0" name="facturador" id="facturador" class="form-control {{$errors->has('facturador')?'is-invalid':''}}"
+                                           value="{{old('facturador')}}">
+                                    <div class="invalid-feedback">
+                                        El campo lugar_exp es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Lugar de expedicion</h5>
                                     <input maxlength="50" required type="text" name="lugar_exp" id="lugar_exp" class="form-control {{$errors->has('lugar_exp')?'is-invalid':''}}"
                                            value="{{old('lugar_exp')}}">
                                     <div class="invalid-feedback">
@@ -59,7 +68,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">origen</h5>
+                                    <h5 for="">Origen</h5>
                                     <input maxlength="50" required type="text" name="origen" id="origen" class="form-control {{$errors->has('origen')?'is-invalid':''}}"
                                            value="{{old('origen')}}">
                                     <div class="invalid-feedback">
@@ -68,7 +77,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">remitente</h5>
+                                    <h5 for="">Remitente</h5>
                                     <input maxlength="50" required type="text" name="remitente" id="remitente" class="form-control {{$errors->has('remitente')?'is-invalid':''}}"
                                            value="{{old('remitente')}}">
                                     <div class="invalid-feedback">
@@ -77,7 +86,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">dom_remitente</h5>
+                                    <h5 for="">Domicilio del remitente</h5>
                                     <input maxlength="50" required type="text" name="dom_remitente" id="dom_remitente" class="form-control {{$errors->has('dom_remitente')?'is-invalid':''}}"
                                            value="{{old('dom_remitente')}}">
                                     <div class="invalid-feedback">
@@ -86,7 +95,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">recoge</h5>
+                                    <h5 for="">Se recoge en</h5>
                                     <input maxlength="50" required type="text" name="recoge" id="recoge" class="form-control {{$errors->has('recoge')?'is-invalid':''}}"
                                            value="{{old('recoge')}}">
                                     <div class="invalid-feedback">
@@ -95,7 +104,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">valor_declarado</h5>
+                                    <h5 for="">Valor declarado</h5>
                                     <input maxlength="50" required type="text" name="valor_declarado" id="valor_declarado" class="form-control {{$errors->has('valor_declarado')?'is-invalid':''}}"
                                            value="{{old('valor_declarado')}}">
                                     <div class="invalid-feedback">
@@ -104,7 +113,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">destino</h5>
+                                    <h5 for="">Destino</h5>
                                     <input maxlength="50" required type="text" name="destino" id="destino" class="form-control {{$errors->has('destino')?'is-invalid':''}}"
                                            value="{{old('destino')}}">
                                     <div class="invalid-feedback">
@@ -113,7 +122,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">destinatario</h5>
+                                    <h5 for="">Destinatario</h5>
                                     <input maxlength="50" required type="text" name="destinatario" id="destinatario" class="form-control {{$errors->has('destinatario')?'is-invalid':''}}"
                                            value="{{old('destinatario')}}">
                                     <div class="invalid-feedback">
@@ -122,7 +131,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">dom_destinatario</h5>
+                                    <h5 for="">Domicilio del destinatario</h5>
                                     <input maxlength="50" required type="text" name="dom_destinatario" id="dom_destinatario" class="form-control {{$errors->has('dom_destinatario')?'is-invalid':''}}"
                                            value="{{old('dom_destinatario')}}">
                                     <div class="invalid-feedback">
@@ -131,7 +140,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">entrega</h5>
+                                    <h5 for="">Se entrega en</h5>
                                     <input maxlength="50" required type="text" name="entrega" id="entrega" class="form-control {{$errors->has('entrega')?'is-invalid':''}}"
                                            value="{{old('entrega')}}">
                                     <div class="invalid-feedback">
@@ -140,7 +149,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">fecha_entrega</h5>
+                                    <h5 for="">Fecha estimada de entrega</h5>
                                     <input maxlength="50" required type="text" name="fecha_entrega" id="fecha_entrega" class="form-control {{$errors->has('fecha_entrega')?'is-invalid':''}}"
                                            value="{{old('fecha_entrega')}}">
                                     <div class="invalid-feedback">
@@ -149,7 +158,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">cantidad</h5>
+                                    <h5 for="">Cantidad</h5>
                                     <input maxlength="50" required type="text" name="cantidad" id="cantidad" class="form-control {{$errors->has('cantidad')?'is-invalid':''}}"
                                            value="{{old('cantidad')}}">
                                     <div class="invalid-feedback">
@@ -158,7 +167,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">embalaje</h5>
+                                    <h5 for="">Embalaje</h5>
                                     <input maxlength="50" required type="text" name="embalaje" id="embalaje" class="form-control {{$errors->has('embalaje')?'is-invalid':''}}"
                                            value="{{old('embalaje')}}">
                                     <div class="invalid-feedback">
@@ -167,7 +176,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">concepto</h5>
+                                    <h5 for="">Concepto</h5>
                                     <input maxlength="50" required type="text" name="concepto" id="concepto" class="form-control {{$errors->has('concepto')?'is-invalid':''}}"
                                            value="{{old('concepto')}}">
                                     <div class="invalid-feedback">
@@ -176,7 +185,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">material_peligroso</h5>
+                                    <h5 for="">Material peligroso</h5>
                                     <input maxlength="50" required type="text" name="material_peligroso" id="material_peligroso" class="form-control {{$errors->has('material_peligroso')?'is-invalid':''}}"
                                            value="{{old('material_peligroso')}}">
                                     <div class="invalid-feedback">
@@ -185,7 +194,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">indemnizacion</h5>
+                                    <h5 for="">Indemnizacion</h5>
                                     <input maxlength="50" required type="text" name="indemnizacion" id="indemnizacion" class="form-control {{$errors->has('indemnizacion')?'is-invalid':''}}"
                                            value="{{old('indemnizacion')}}">
                                     <div class="invalid-feedback">
@@ -194,7 +203,25 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">obs</h5>
+                                    <h5 for="">Importe</h5>
+                                    <input required type="number" min="0" name="importe" id="importe" class="form-control {{$errors->has('importe')?'is-invalid':''}}"
+                                           value="{{old('importe')}}">
+                                    <div class="invalid-feedback">
+                                        El campo importe requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <h5 for="">Asignacion de precio</h5>
+                                <select name="asignacion_precio" id="asignacion_precio" class="form-control">
+                                    @foreach($provedores as $provedor)
+                                        <option value="{{$provedor->id}}" selected>{{$provedor->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Observaciones</h5>
                                     <input maxlength="50" required type="text" name="obs" id="obs" class="form-control {{$errors->has('obs')?'is-invalid':''}}"
                                            value="{{old('obs')}}">
                                     <div class="invalid-feedback">
@@ -203,12 +230,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5 for="">dias_re</h5>
-                                    <input type="number" required name="dias_re" id="dias_re" class="form-control {{$errors->has('dias_re')?'is-invalid':''}}"
-                                           value="{{old('dias_re')}}">
-                                    <div class="invalid-feedback">
-                                        El campo dias_re requerido y debe de ser numerico
-                                    </div>
+                                    <h5 for="">dias para recuperacion de evidencias</h5>
+                                    <select name="dias_re" id="dias_re" class="form-control">
+                                        @for($j=1; $j<11; $j++)
+                                            <option value="{{$j}}">{{$j}}</option>
+                                        @endfor
+                                    </select>
                                 </div>
 
                                 <button type="submit" class="btn btn-info" id="guardarRutasBtn">Guardar</button>
@@ -218,7 +245,7 @@
                             <form action="{{route('datosFacturacions.store')}}" method="post" id="dFacturacionForm">
                                 <input type="hidden" name="token" id="tokenFormDfacturacion" value="{{csrf_token()}}">
                                 <div class="form-group">
-                                    <label for="">Rutas</label>
+                                    <h5 for="">Rutas</h5>
                                     <select name="rutas" id="rutasSelect" class="form-control">
                                         @foreach($rutas as $ruta)
                                             <option value="{{$ruta->id}}">{{$ruta->nombre}}</option>
@@ -227,7 +254,16 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Clave Prod Serv</label>
+                                    <h5 for="">Asignacion de precio</h5>
+                                    <select name="asignacionPrecio" id="asignacionPrecio" class="form-control">
+                                        @foreach($provedores as $provedor)
+                                            <option value="{{$provedor->id}}">{{$provedor->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Clave de Prod o Servicio</h5>
                                     <input maxlength="20" type="text" required name="claveProdServ" id="claveProdServ" class="form-control {{$errors->has('claveProdServ')?'is-invalid':''}}"
                                            value="{{old('claveProdServ')}}">
                                     <div class="invalid-feedback">
@@ -236,7 +272,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">No Identificacion</label>
+                                    <h5 for="">Numero de Identificacion</h5>
                                     <input maxlength="20" type="text" required name="noIdentificacion" id="noIdentificacion" class="form-control {{$errors->has('noIdentificacion')?'is-invalid':''}}"
                                            value="{{old('noIdentificacion')}}">
                                     <div class="invalid-feedback">
@@ -245,8 +281,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Cantidad</label>
-                                    <input type="number" required name="cantidad" id="cantidadDfacturacion" class="form-control {{$errors->has('cantidadDatosFacturacion')?'is-invalid':''}}"
+                                    <h5 for="">Cantidad</h5>
+                                    <input type="number" min="0" required name="cantidad" id="cantidadDfacturacion" class="form-control {{$errors->has('cantidadDatosFacturacion')?'is-invalid':''}}"
                                            value="{{old('cantidadDatosFacturacion')}}">
                                     <div class="invalid-feedback">
                                         El campo cantidad es requerido y debe de ser numerico
@@ -254,7 +290,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Clave Unidad</label>
+                                    <h5 for="">Clave Unidad</h5>
                                     <input maxlength="20" type="text" required name="claveUnidad" id="claveUnidad" class="form-control {{$errors->has('claveUnidad')?'is-invalid':''}}"
                                            value="{{old('claveUnidad')}}">
                                     <div class="invalid-feedback">
@@ -263,7 +299,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Unidad</label>
+                                    <h5 for="">Unidad</h5>
                                     <input maxlength="20" type="text" required name="unidad" id="unidad" class="form-control {{$errors->has('unidad')?'is-invalid':''}}"
                                            value="{{old('unidad')}}">
                                     <div class="invalid-feedback">
@@ -272,7 +308,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Descripcion</label>
+                                    <h5 for="">Descripcion</h5>
                                     <input maxlength="50" type="text" required name="descripcion" id="descripcion" class="form-control {{$errors->has('descripcion')?'is-invalid':''}}"
                                            value="{{old('descripcion')}}">
                                     <div class="invalid-feedback">
@@ -281,8 +317,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Valor Unitario</label>
-                                    <input type="number" required name="valorUnitario" id="valorUnitario" class="form-control {{$errors->has('valorUnitario')?'is-invalid':''}}"
+                                    <h5 for="">Valor Unitario</h5>
+                                    <input type="number" min="0" required name="valorUnitario" id="valorUnitario" class="form-control {{$errors->has('valorUnitario')?'is-invalid':''}}"
                                            value="{{old('valorUnitario')}}">
                                     <div class="invalid-feedback">
                                         El campo valorUnitario es requerido
@@ -290,8 +326,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Importe</label>
-                                    <input type="number" required name="importe" id="importe" class="form-control {{$errors->has('importe')?'is-invalid':''}}"
+                                    <h5 for="">Importe</h5>
+                                    <input type="number" min="0" required name="importeF" id="importeF" class="form-control {{$errors->has('importe')?'is-invalid':''}}"
                                            value="{{old('importe')}}">
                                     <div class="invalid-feedback">
                                         El campo importe es requerido y debe de ser numerico
@@ -299,8 +335,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">tIva</label>
-                                    <input type="number" required name="tIva" id="tIva" class="form-control {{$errors->has('tIva')?'is-invalid':''}}"
+                                    <h5 for="">Traslado de Iva (Porcentaje)</h5>
+                                    <input type="number" min="0" required name="tIva" id="tIva" class="form-control {{$errors->has('tIva')?'is-invalid':''}}"
                                            value="{{old('tIva')}}">
                                     <div class="invalid-feedback">
                                         El campo tIva es requerido y debe de ser numerico
@@ -308,8 +344,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">tIsr</label>
-                                    <input type="number" required name="tIsr" id="tIsr" class="form-control {{$errors->has('tIsr')?'is-invalid':''}}"
+                                    <h5 for="">Traslado de Isr (Porcentaje)</h5>
+                                    <input type="number" min="0" required name="tIsr" id="tIsr" class="form-control {{$errors->has('tIsr')?'is-invalid':''}}"
                                            value="{{old('tIsr')}}">
                                     <div class="invalid-feedback">
                                         El campo tIsr es requerido y debe de ser numerico
@@ -317,8 +353,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">rIva</label>
-                                    <input type="number" required name="rIva" id="rIva" class="form-control {{$errors->has('rIva')?'is-invalid':''}}"
+                                    <h5 for="">Retencion de Iva (Porcentaje)</h5>
+                                    <input type="number" min="0" required name="rIva" id="rIva" class="form-control {{$errors->has('rIva')?'is-invalid':''}}"
                                            value="{{old('rIva')}}">
                                     <div class="invalid-feedback">
                                         El campo rIva es requerido y debe de ser numerico
@@ -326,8 +362,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">rIsr</label>
-                                    <input type="number" required name="rIsr" id="rIsr" class="form-control {{$errors->has('rIsr')?'is-invalid':''}}"
+                                    <h5 for="">Retencion de Isr (Porcentaje)</h5>
+                                    <input type="number" min="0" required name="rIsr" id="rIsr" class="form-control {{$errors->has('rIsr')?'is-invalid':''}}"
                                            value="{{old('rIsr')}}">
                                     <div class="invalid-feedback">
                                         El campo rIsr es requerido y debe de ser numerico
@@ -347,6 +383,7 @@
             e.preventDefault();
             var clientes = $('#clientes').val();
             var nombre = $('#nombre').val();
+            var facturador = $('#facturador').val();
             var lugar_exp = $('#lugar_exp').val();
             var origen = $('#origen').val();
             var remitente = $('#remitente').val();
@@ -363,6 +400,8 @@
             var concepto = $('#concepto').val();
             var material_peligroso = $('#material_peligroso').val();
             var indemnizacion = $('#indemnizacion').val();
+            var importe = $('#importe').val();
+            var asignacion_precio = $('#asignacion_precio').val();
             var obs = $('#obs').val();
             var dias_re = $('#dias_re').val();
 
@@ -370,6 +409,7 @@
             var request = {
                 clientes:clientes,
                 nombre:nombre,
+                facturador:facturador,
                 lugar_exp:lugar_exp,
                 origen:origen,
                 remitente:remitente,
@@ -386,6 +426,8 @@
                 concepto:concepto,
                 material_peligroso:material_peligroso,
                 indemnizacion:indemnizacion,
+                importe:importe,
+                asignacion_precio:asignacion_precio,
                 obs:obs,
                 dias_re:dias_re,
             }
@@ -415,14 +457,45 @@
                     })
 
                 })
-                .fail(function() {
-                    console.log("error");
-                })
+                .fail( function( jqXHR, textStatus, errorThrown ) {
+
+                    if (jqXHR.status === 0) {
+
+                        alert('Not connect: Verify Network.');
+
+                    } else if (jqXHR.status == 404) {
+
+                        alert('Requested page not found [404]');
+
+                    } else if (jqXHR.status == 500) {
+
+                        alert('Internal Server Error [500].');
+
+                    } else if (textStatus === 'parsererror') {
+
+                        alert('Requested JSON parse failed.');
+
+                    } else if (textStatus === 'timeout') {
+
+                        alert('Time out error.');
+
+                    } else if (textStatus === 'abort') {
+
+                        alert('Ajax request aborted.');
+
+                    } else {
+
+                        alert('Uncaught Error: ' + jqXHR.responseText);
+
+                    }
+
+                });
         });
 
         $("#dFacturacionForm").submit(function(e){
             e.preventDefault();
             var rutas = $("#rutasSelect").val();
+            var asignacionPrecio = $("#asignacionPrecio").val();
             var claveProdServ = $("#claveProdServ").val();
             var noIdentificacion = $("#noIdentificacion").val();
             var cantidad = $("#cantidadDfacturacion").val();
@@ -430,7 +503,7 @@
             var unidad = $("#unidad").val();
             var descripcion = $("#descripcion").val();
             var valorUnitario = $("#valorUnitario").val();
-            var importe = $("#importe").val();
+            var importe = $("#importeF").val();
             var tIva = $("#tIva").val();
             var tIsr = $("#tIsr").val();
             var rIva = $("#rIva").val();
@@ -439,6 +512,7 @@
 
             var request = {
                 rutas:rutas,
+                asignacionPrecio:asignacionPrecio,
                 claveProdServ:claveProdServ,
                 noIdentificacion:noIdentificacion,
                 cantidad:cantidad,

@@ -26,6 +26,7 @@ Route::group(['middleware'=>['auth', 'noCache']], function (){
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
-Auth::routes(['register'=>false, 'reset'=>false]);
+Auth::routes();
+//['register'=>false, 'reset'=>false]
 
 

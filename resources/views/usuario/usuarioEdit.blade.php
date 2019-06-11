@@ -27,13 +27,13 @@
                 <input maxlength="8" type="text" name="password" id="password" class="form-control"  value="{{$usuario->password}}">
                 <h5 for="">Nombre Corto</h5>
                 <input maxlength="20" type="text" name="nombreCorto" id="nombreCorto" class="form-control"  value="{{$usuario->nombreCorto}}">
-                <h5 for="">Cargo</h5>
+                <h5 for="">Cargo del usuario</h5>
                 <input maxlength="20" type="text" name="cargo" id="cargo" class="form-control"  value="{{$usuario->cargo}}">
-                <h5 for="">Area</h5>
+                <h5 for="">Area del cargo</h5>
                 <input maxlength="20" type="text" name="area" id="area" class="form-control"  value="{{$usuario->area}}">
                 <br>
                 <div class="form-group">
-                    <label>Modulo01</label>
+                    <label>Catalogos</label>
                     <div class="checkbox">
                         <input type="checkbox" id="modulo01_1"/>
                     </div>
@@ -41,7 +41,7 @@
                 <input type="hidden" name="modulo01" id="modulo01" value="1" />
 
                 <div class="form-group">
-                    <label>Modulo02</label>
+                    <label>Rutas</label>
                     <div class="checkbox">
                         <input type="checkbox" id="modulo02_2"/>
                     </div>
@@ -49,7 +49,7 @@
                 <input type="hidden" name="modulo02" id="modulo02" value="1" />
 
                 <div class="form-group">
-                    <label>Modulo03</label>
+                    <label>Carta porte</label>
                     <div class="checkbox">
                         <input type="checkbox" id="modulo03_3"/>
                     </div>
@@ -57,7 +57,7 @@
                 <input type="hidden" name="modulo03" id="modulo03" value="1" />
 
                 <div class="form-group">
-                    <label>Modulo04</label>
+                    <label>Facturacion</label>
                     <div class="checkbox">
                         <input type="checkbox" id="modulo04_4"/>
                     </div>

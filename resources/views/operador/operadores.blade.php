@@ -24,12 +24,12 @@
                         <th>ID</th>
                         <th>APELLIDO_PATERNO</th>
                         <th>APELLIDO_MATERNO</th>
-                        <th>NOMBRE</th>
+                        <th>NOMBRES</th>
                         <th>NOMBRE_CORTO</th>
-                        <th>LICENCIA</th>
+                        <th>NUMERO_DE_LICENCIA</th>
                         <th>VIGENCIA_LICENCIA</th>
-                        <th>VIGENCIA_MEDICO</th>
-                        <th>OBS</th>
+                        <th>VIGENCIA_DE_EXAMEN_MEDICO</th>
+                        <th>OBSERVACIONES</th>
                         <th>ELIMINAR_REGISTRO</th>
                         <th>EDITAR_REGISTRO</th>
                     </tr>

@@ -33,31 +33,33 @@
                                 <div class="accordion-body collapse" id="accordion-one">
                                     <div class="accordion-body-wrapper">
                                         <div class="table-responsive">
-                                            <table class="table table-hover table-sm">
+                                            <table class="table table-hover table-sm table-striped">
                                                 <thead class="table-info">
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>CLIENTES</th>
-                                                    <th>NOMBRE</th>
+                                                    <th>NOMBRE_DE_RUTA</th>
                                                     <th>CLIENTE</th>
-                                                    <th>LUGAR_EXP</th>
+                                                    <th>RAZON_SOCIAL_QUE_FACTURA</th>
+                                                    <th>LUGAR_EXPEDICION</th>
                                                     <th>ORIGEN</th>
                                                     <th>REMITENTE</th>
-                                                    <th>DOM_REMITENTE</th>
-                                                    <th>RECOGE</th>
+                                                    <th>DOMICILIO_DEL_REMITENTE</th>
+                                                    <th>SE_RECOGE_EN</th>
                                                     <th>VALOR_DECLARADO</th>
                                                     <th>DESTINO</th>
                                                     <th>DESTINATARIO</th>
-                                                    <th>DOM_DESTINATARIO</th>
-                                                    <th>ENTREGA</th>
-                                                    <th>FECHA_ENTREGA</th>
+                                                    <th>DOMICILIO_DEL_DESTINATARIO</th>
+                                                    <th>SE_ENTREGA_EN</th>
+                                                    <th>FECHA_ESTIMADA_DE_ENTREGA</th>
                                                     <th>CANTIDAD</th>
                                                     <th>EMBALAJE</th>
                                                     <th>CONCEPTO</th>
                                                     <th>MATERIAL_PELIGROSO</th>
                                                     <th>INDEMNIZACION</th>
-                                                    <th>OBS</th>
-                                                    <th>DIAS_RE</th>
+                                                    <th>IMPORTE</th>
+                                                    <th>ASIGNACION_DE_PRECIO</th>
+                                                    <th>OBSERVACIONES</th>
+                                                    <th>DIAS_PARA_RECUPERACION_DE_EVIDENCIAS</th>
                                                     <th>ELIMINAR_REGISTRO</th>
                                                     <th>EDITAR_REGISTRO</th>
                                                 </tr>
@@ -66,9 +68,13 @@
                                                 @foreach($rutas as $ruta)
                                                     <tr>
                                                         <td>{{$ruta->id}}</td>
-                                                        <td>{{$ruta->clientes}}</td>
                                                         <td>{{$ruta->nombre}}</td>
-                                                        <td>{{$ruta->cliente}}</td>
+                                                        @foreach($clientes as $cliente)
+                                                            @if($ruta->clientes == $cliente->id)
+                                                                <td>{{$cliente->nombre}}</td>
+                                                            @endif
+                                                        @endforeach
+                                                        <td>{{$ruta->facturador}}</td>
                                                         <td>{{$ruta->lugar_exp}}</td>
                                                         <td>{{$ruta->origen}}</td>
                                                         <td>{{$ruta->remitente}}</td>
@@ -85,6 +91,12 @@
                                                         <td>{{$ruta->concepto}}</td>
                                                         <td>{{$ruta->material_peligroso}}</td>
                                                         <td>{{$ruta->indemnizacion}}</td>
+                                                        <td>{{$ruta->importe}}</td>
+                                                        @foreach($provedores as $provedor)
+                                                            @if($ruta->asignacion_precio == $provedor->id)
+                                                                <td>{{$provedor->nombre}}</td>
+                                                            @endif
+                                                        @endforeach
                                                         <td>{{$ruta->obs}}</td>
                                                         <td>{{$ruta->dias_re}}</td>
                                                         <td>
@@ -114,32 +126,42 @@
 
                                 <div class="accordion-body collapse" id="accordion-three">
                                     <div class="accordion-body-wrapper">
-                                        <table class="table table-responsive table-hover">
+                                        <table class="table table-responsive table-hover table-striped">
                                             <thead>
                                             <tr>
-                                                <th>id</th>
-                                                <td>rutas</td>
-                                                <td>claveProdServ</td>
-                                                <td>noIdentificacion</td>
-                                                <td>cantidad</td>
-                                                <td>claveUnidad</td>
-                                                <td>unidad</td>
-                                                <td>descripcion</td>
-                                                <td>valorUnitario</td>
-                                                <td>importe</td>
-                                                <td>tIva</td>
-                                                <td>tIsr</td>
-                                                <td>rIva</td>
-                                                <td>rIsr</td>
-                                                <td>Eliminar</td>
-                                                <td>Editar</td>
+                                                <th>ID</th>
+                                                <th>RUTAS</th>
+                                                <th>ASIGNACION_DE_PRECIO</th>
+                                                <th>CLAVE_DE_PRODUCTO_O_SERVICIO</th>
+                                                <th>NUMERO_DE_IDENTIFICACION</th>
+                                                <th>CANTIDAD</th>
+                                                <th>CLAVE_DE_UNIDAD</th>
+                                                <th>UNIDAD</th>
+                                                <th>DESCRIPCION</th>
+                                                <th>VALOR_UNITARIO</th>
+                                                <th>IMPORTE</th>
+                                                <th>TRASLADO_DE_IVA_(PORCENTAJE)</th>
+                                                <th>TRASLADO_DE_ISR_(PORCENTAJE)</th>
+                                                <th>RETENCION_DE_IVA_(PORCENTAJE)</th>
+                                                <th>RETENCION_DE_ISR_(PORCENTAJE)</th>
+                                                <th>ELIMINAR_REGISTRO</th>
+                                                <th>EDITAR_REGISTRO</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             @foreach($datosF as $dt)
                                                 <tr>
                                                     <td>{{$dt->id}}</td>
-                                                    <td>{{$dt->rutas}}</td>
+                                                    @foreach($rutasAll as $ruta)
+                                                        @if($dt->rutas == $ruta->id)
+                                                            <td>{{$ruta->nombre}}</td>
+                                                        @endif
+                                                    @endforeach
+                                                    @foreach($provedores as $provedor)
+                                                        @if($dt->asignacionPrecio == $provedor->id)
+                                                            <td>{{$provedor->nombre}}</td>
+                                                        @endif
+                                                    @endforeach
                                                     <td>{{$dt->claveProdServ}}</td>
                                                     <td>{{$dt->noIdentificacion}}</td>
                                                     <td>{{$dt->cantidad}}</td>
@@ -186,10 +208,10 @@
                             <div class="accordion-group panel">
                                 <div class="accordion-header">
                                     <div class="accordion-title">Tarifas</div><!-- End .accourdion-title -->
-                                    <a class="accordion-btn" data-toggle="collapse" data-parent="#accordion" href="#accordion-four"></a>
+                                    <a class="accordion-btn" data-toggle="collapse" data-parent="#accordion" href="#accordion-five"></a>
                                 </div><!-- End .accordion-header -->
 
-                                <div class="accordion-body collapse" id="accordion-four">
+                                <div class="accordion-body collapse" id="accordion-five">
                                     <div class="accordion-body-wrapper">
                                         <p>Pellentesque malesuada sollicitudin fermentum. Nullam ultricesposuere congue. Turpis rhoncus. Nullam pretium eleifend neque, eget congue purus tincidunt id. Duis quam vitae condimentum.</p>
                                         <p>Sed pretium, elit eget fermentum mattis, tortor eros aliquam purus,  lacus mauris pellentesque odio, ut rhoncus erat risus sed.</p>

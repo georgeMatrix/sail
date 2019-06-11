@@ -28,11 +28,11 @@
                             @endif
                         @endforeach
                     </select>
-                    <h5 for="">Nombre</h5>
+                    <h5 for="">Nombre de la unidad</h5>
                     <input maxlength="70" type="text" name="nombre" id="nombre" class="form-control"  value="{{$unidad->nombre}}">
                     <h5 for="">Economico</h5>
                     <input maxlength="10" type="text" name="economico" id="economico" class="form-control"  value="{{$unidad->economico}}">
-                    <h5 for="">Tipo</h5>
+                    <h5 for="">Tipo de unidad</h5>
                     <input maxlength="20" type="text" name="tipo" id="tipo" class="form-control"  value="{{$unidad->tipo}}">
                     <h5 for="">Marca</h5>
                     <input maxlength="20" type="text" name="marca" id="marca" class="form-control"  value="{{$unidad->marca}}">
@@ -40,17 +40,17 @@
                     <input maxlength="20" type="text" name="modelo" id="modelo" class="form-control"  value="{{$unidad->modelo}}">
                     <h5 for="">Placas</h5>
                     <input maxlength="20" type="text" name="placas" id="placas" class="form-control"  value="{{$unidad->placas}}">
-                    <h5 for="">Serie</h5>
+                    <h5 for="">Numero de serie de chasis</h5>
                     <input maxlength="30" type="text" name="serie" id="serie" class="form-control"  value="{{$unidad->serie}}">
-                    <h5 for="">Motor</h5>
+                    <h5 for="">Numero de serie de motor</h5>
                     <input maxlength="30" type="text" name="motor" id="motor" class="form-control"  value="{{$unidad->motor}}">
-                    <h5 for="">Seguro</h5>
+                    <h5 for="">Vencimiento de poliza de seguro</h5>
                     <input type="text" readonly name="seguro" id="seguro" class="form-control"  value="{{$unidad->seguro}}">
-                    <h5 for="">Verificacion</h5>
+                    <h5 for="">Vencimiento de verificacion</h5>
                     <input type="text" readonly name="verificacion" id="verificacion" class="form-control"  value="{{$unidad->verificacion}}">
-                    <h5 for="">Fm</h5>
+                    <h5 for="">Vencimiento de fisico mecanico</h5>
                     <input type="text" readonly name="fm" id="fm" class="form-control"  value="{{$unidad->fm}}">
-                    <h5 for="">Obs</h5>
+                    <h5 for="">Observaciones</h5>
                     <input maxlength="100" type="text" name="obs" id="obs" class="form-control"  value="{{$unidad->obs}}">
                     <br>
                     <button type="submit" class="btn btn-info">Actualizar</button>

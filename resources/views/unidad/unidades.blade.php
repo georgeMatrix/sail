@@ -23,18 +23,18 @@
                     <tr>
                         <th>ID</th>
                         <th>PROVEEDOR</th>
-                        <th>NOMBRE</th>
+                        <th>NOMBRE_DE_LA_UNIDAD</th>
                         <th>ECONOMICO</th>
-                        <th>TIPO</th>
+                        <th>TIPO_DE_UNIDAD</th>
                         <th>MARCA</th>
                         <th>MODELO</th>
                         <th>PLACAS</th>
-                        <th>SERIE</th>
-                        <th>MOTOR</th>
-                        <th>SEGURO</th>
-                        <th>VERIFICACION</th>
-                        <th>FM</th>
-                        <th>OBS</th>
+                        <th>NUMERO_DE_SERIE_DE_CHASIS</th>
+                        <th>NUMERO_DE_SERIE_DE_MOTOR</th>
+                        <th>VENCIMIENTO_DE_POLIZA_DE_SEGURO</th>
+                        <th>VENCIMIENTO_DE_VERIFICACION</th>
+                        <th>VENCIMIENTO_DE_FISICO_MECANICA</th>
+                        <th>OBSERVACIONES</th>
                         <th>ELIMINAR_REGISTRO</th>
                         <th>ACTUALIZAR_REGISTRO</th>
                     </tr>
@@ -43,7 +43,11 @@
                     @foreach($unidades as $unidad)
                         <tr>
                             <td>{{$unidad->id}}</td>
-                            <td>{{$unidad->provedor}}</td>
+                            @foreach($provedores as $provedor)
+                                @if($provedor->id == $unidad->provedor)
+                                    <td>{{$provedor->nombre}}</td>
+                                @endif
+                            @endforeach
                             <td>{{$unidad->nombre}}</td>
                             <td>{{$unidad->economico}}</td>
                             <td>{{$unidad->tipo}}</td>

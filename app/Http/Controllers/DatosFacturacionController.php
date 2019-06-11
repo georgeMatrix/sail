@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DatosFacturacion;
+use App\Provedores;
 use App\Rutas;
 use Illuminate\Http\Request;
 
@@ -82,8 +83,9 @@ class DatosFacturacionController extends Controller
     public function edit($id)
     {
         $rutas = Rutas::all();
+        $provedores = Provedores::all();
         $datosF = DatosFacturacion::findOrFail($id);
-        return view('datosFacturacion/datosFacturacionEdit')->with('datosF', $datosF)->with('rutas', $rutas);
+        return view('datosFacturacion/datosFacturacionEdit')->with('datosF', $datosF)->with('rutas', $rutas)->with('provedores', $provedores);
     }
 
     /**
@@ -99,7 +101,7 @@ class DatosFacturacionController extends Controller
         DatosFacturacion::where('id', '=', $id)->update($datosF);
         //$cliente = Clientes::findOrFail($id);
         //return view('cliente/clienteEdit')->with('cliente', $cliente);
-        return redirect()->route('datosFacturacions.index');
+        return redirect()->route('rutas.index');
     }
 
     /**

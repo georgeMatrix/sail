@@ -17,9 +17,9 @@
                 <form action="{{url('/provedores/'.$provedor->id)}}" method="post">
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
-                    <h5 for="">Nombre</h5>
+                    <h5 for="">Nombre comercial del proveedor</h5>
                     <input maxlength="70" type="text" name="nombre" id="nombre" class="form-control" value="{{$provedor->nombre}}">
-                    <h5 for="">Razon social</h5>
+                    <h5 for="">Razon social del proveedor</h5>
                     <input maxlength="70" type="text" name="razon_social" id="razon_social" class="form-control"  value="{{$provedor->razon_social}}">
                     <h5 for="">Rfc</h5>
                     <input maxlength="11" type="text" name="rfc" id="rfc" class="form-control"  value="{{$provedor->rfc}}">
@@ -29,7 +29,7 @@
                     <input maxlength="50" type="text" name="contacto" id="contacto" class="form-control"  value="{{$provedor->contacto}}">
                     <h5 for="">Mail</h5>
                     <input maxlength="50" type="email" name="mail" id="mail" class="form-control"  value="{{$provedor->mail}}">
-                    <h5 for="">Credito</h5>
+                    <h5 for="">Dias de credito</h5>
                     <input type="number" name="credito" id="credito" class="form-control"  value="{{$provedor->credito}}">
                     <h5 for="">Saldo</h5>
                     <input type="number" name="saldo" id="saldo" class="form-control"  value="{{$provedor->saldo}}">

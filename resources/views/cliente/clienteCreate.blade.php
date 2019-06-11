@@ -145,20 +145,23 @@
 
                 <div class="form-group">
                     <h5 for="">Dia Revision</h5>
-                    <input maxlength="20" type="text" name="dia_revision" id="dia_revision" class="form-control {{$errors->has('dia_revision')?'is-invalid':''}}"
-                           value="{{old('dia_revision')}}">
-                    <div class="invalid-feedback">
-                        El Dia Revision es requerido
-                    </div>
+                    <select name="dia_revision" id="dia_revision" class="form-control">
+                        <option value="lunes">LUNES</option>
+                        <option value="MARTES">MARTES</option>
+                        <option value="MIERCOLES">MIERCOLES</option>
+                        <option value="JUEVES">JUEVES</option>
+                        <option value="VIERNES">VIERNES</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <h5 for="">Dia Credito</h5>
-                    <input type="number" name="dia_credito" id="dia_credito" class="form-control {{$errors->has('dia_credito')?'is-invalid':''}}"
-                           value="{{old('dia_credito')}}">
-                    <div class="invalid-feedback">
-                        El Dia Credito es requerido y debe de ser numerico
-                    </div>
+                    <select name="dia_credito" id="dia_credito" class="form-control">
+                        @for($i=1; $i<100; $i++)
+                            <option value="{{$i}}">{{$i}}</option>
+                        @endfor
+                    </select>
+                    
                 </div>
 
                 <button type="submit" class="btn btn-info"><i class="far fa-save"></i> Guardar</button>

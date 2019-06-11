@@ -21,14 +21,13 @@
                     <thead class="table-info">
                     <tr>
                         <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>RAZON_SOCIAL</th>
+                        <th>NOMBRE_COMERCIAL_DEL_PROVEEDOR</th>
+                        <th>RAZON_SOCIAL_DEL_PROVEEDOR</th>
                         <th>RFC</th>
                         <th>DIRECCION</th>
                         <th>CONTACTO</th>
                         <th>MAIL</th>
-                        <th>CREDITO</th>
-                        <th>SALDO</th>
+                        <th>DIAS_DE_CREDITO</th>
                         <th>ELIMINAR_REGISTRO</th>
                         <th>EDITAR_REGISTRO</th>
                     </tr>
@@ -44,7 +43,6 @@
                             <td>{{$provedor->contacto}}</td>
                             <td>{{$provedor->mail}}</td>
                             <td>{{$provedor->credito}}</td>
-                            <td>{{$provedor->saldo}}</td>
                             <td>
                                 <form method="post" action="{{url('/provedores/'.$provedor->id)}}">
                                     {{csrf_field()}}

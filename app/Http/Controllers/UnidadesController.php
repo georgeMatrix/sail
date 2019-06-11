@@ -15,8 +15,11 @@ class UnidadesController extends Controller
      */
     public function index()
     {
+        $provedores = Provedores::all();
         $unidades = Unidades::orderBy('id', 'DESC')->paginate(10);
-        return view('unidad/unidades')->with('unidades' , $unidades);
+        return view('unidad/unidades')
+            ->with('unidades' , $unidades)
+            ->with('provedores', $provedores);
     }
 
     /**

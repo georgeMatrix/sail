@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5>Cargo</h5>
+                        <h5>Cargo del usuario</h5>
                         <input maxlength="20" type="text" name="cargo" id="cargo" class="form-control {{$errors->has('cargo')?'is-invalid':''}}"
                                value="{{old('cargo')}}">
                         <div class="invalid-feedback">
@@ -80,25 +80,25 @@
                     </div>
 
                     <div class="form-group">
-                        <h5>Modulo01</h5>
+                        <h5>Catalogos</h5>
                         <br>
                         <input data-toggle="toggle" type="checkbox" id="modulo01" name="modulo01" value="1" @if(old('modulo01') ==  1) checked="checked" @endif />
                     </div>
 
                     <div class="form-group">
-                        <h5>Modulo02</h5>
+                        <h5>Rutas</h5>
                         <br>
                         <input data-toggle="toggle" type="checkbox" id="modulo02" name="modulo02" value="1" @if(old('modulo02') ==  1) checked="checked" @endif />
                     </div>
 
                     <div class="form-group">
-                        <h5>Modulo03</h5>
+                        <h5>Carta porte</h5>
                         <br>
                         <input data-toggle="toggle" type="checkbox" id="modulo03" name="modulo03" value="1" @if(old('modulo03') ==  1) checked="checked" @endif />
                     </div>
 
                     <div class="form-group">
-                        <h5>Modulo04</h5>
+                        <h5>Facturacion</h5>
                         <br>
                         <input data-toggle="toggle" type="checkbox" id="modulo04" name="modulo04" value="1" @if(old('modulo04') ==  1) checked="checked" @endif />
                     </div>

@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Licencia</h5>
+                        <h5 for="">Numero de licencia</h5>
                         <input maxlength="20" type="text" name="licencia" id="licencia" class="form-control {{$errors->has('licencia')?'is-invalid':''}}"
                                value="{{old('licencia')}}">
                         <div class="invalid-feedback">
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Vigencia licencia</h5>
+                        <h5 for="">Vigencia de licencia</h5>
                         <!-- <input type="text" class="form-control" id="datapicker">-->
                         <input type="text" readonly name="vigencia_licencia" id="vigencia_licencia" class="form-control {{$errors->has('vigencia_licencia')?'is-invalid':''}}"
                                value="{{old('vigencia_licencia')}}">
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Vigencia Medico</h5>
+                        <h5 for="">Vigencia de examen medico</h5>
                         <input type="text" readonly name="vigencia_medico" id="vigencia_medico" class="form-control {{$errors->has('vigencia_medico')?'is-invalid':''}}"
                                value="{{old('vigencia_medico')}}">
                         <div class="invalid-feedback">
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Obs</h5>
+                        <h5 for="">Observaciones</h5>
                         <input maxlength="100" type="text" name="obs" id="obs" class="form-control {{$errors->has('obs')?'is-invalid':''}}"
                                value="{{old('obs')}}">
                         <div class="invalid-feedback">

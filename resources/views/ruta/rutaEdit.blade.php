@@ -17,7 +17,7 @@
                 <form action="{{url('/rutas/'.$ruta->id)}}" method="post">
                     {{csrf_field()}}
                     {{method_field('PATCH')}}
-                    <h5 for="">Nombre</h5>
+                    <h5 for="">Nombre de ruta</h5>
                     <input maxlength="50" type="text" name="nombre" id="nombre" class="form-control"  value="{{$ruta->nombre}}">
                     <h5 for="">Clientes</h5>
                     <select name="clientes" id="clientes" class="form-control">
@@ -29,17 +29,17 @@
                             @endif
                         @endforeach
                     </select>
-                    <h5 for="">Cliente</h5>
-                    <input maxlength="50" type="text" name="cliente" id="cliente" class="form-control"  value="{{$ruta->cliente}}">
-                    <h5 for="">Lugar exp</h5>
+                    <h5 for="">Razon social que factura</h5>
+                    <input maxlength="50" type="text" name="lugar_exp" id="lugar_exp" class="form-control"  value="{{$ruta->lugar_exp}}">
+                    <h5 for="">Lugar de expedicion</h5>
                     <input maxlength="50" type="text" name="lugar_exp" id="lugar_exp" class="form-control"  value="{{$ruta->lugar_exp}}">
                     <h5 for="">Origen</h5>
                     <input maxlength="50" type="text" name="origen" id="origen" class="form-control"  value="{{$ruta->origen}}">
                     <h5 for="">Remitente</h5>
                     <input maxlength="50" type="text" name="remitente" id="remitente" class="form-control"  value="{{$ruta->remitente}}">
-                    <h5 for="">Dom remitente</h5>
+                    <h5 for="">Domicilio del remitente</h5>
                     <input maxlength="50" type="text" name="dom_remitente" id="dom_remitente" class="form-control"  value="{{$ruta->dom_remitente}}">
-                    <h5 for="">Recoge</h5>
+                    <h5 for="">Se recoge en</h5>
                     <input maxlength="50" type="text" name="recoge" id="recoge" class="form-control"  value="{{$ruta->recoge}}">
                     <h5 for="">Valor declarado</h5>
                     <input maxlength="50" type="text" name="valor_declarado" id="valor_declarado" class="form-control"  value="{{$ruta->valor_declarado}}">
@@ -47,11 +47,11 @@
                     <input maxlength="50" type="text" name="destino" id="destino" class="form-control"  value="{{$ruta->destino}}">
                     <h5 for="">Destinatario</h5>
                     <input maxlength="50" type="text" name="destinatario" id="destinatario" class="form-control"  value="{{$ruta->destinatario}}">
-                    <h5 for="">Dom destinatario</h5>
+                    <h5 for="">Domicilio del destinatario</h5>
                     <input maxlength="50" type="text" name="dom_destinatario" id="dom_destinatario" class="form-control"  value="{{$ruta->dom_destinatario}}">
-                    <h5 for="">Entrega</h5>
+                    <h5 for="">Se entrega en</h5>
                     <input maxlength="50" type="text" name="entrega" id="entrega" class="form-control"  value="{{$ruta->entrega}}">
-                    <h5 for="">Fecha entrega</h5>
+                    <h5 for="">Fecha estimada de entrega</h5>
                     <input maxlength="50" type="text" name="fecha_entrega" id="fecha_entrega" class="form-control"  value="{{$ruta->fecha_entrega}}">
                     <h5 for="">Cantidad</h5>
                     <input maxlength="50" type="text" name="cantidad" id="cantidad" class="form-control"  value="{{$ruta->cantidad}}">
@@ -61,12 +61,28 @@
                     <input maxlength="50" type="text" name="concepto" id="concepto" class="form-control"  value="{{$ruta->concepto}}">
                     <h5 for="">Material peligroso</h5>
                     <input maxlength="50" type="text" name="material_peligroso" id="material_peligroso" class="form-control"  value="{{$ruta->material_peligroso}}">
-                    <h5 for="">indemnizacion</h5>
+                    <h5 for="">Indemnizacion</h5>
                     <input maxlength="50" type="text" name="indemnizacion" id="indemnizacion" class="form-control"  value="{{$ruta->indemnizacion}}">
-                    <h5 for="">Obs</h5>
+                    <h5 for="">Importe</h5>
+                    <input min="0" type="number" name="importe" id="importe" class="form-control"  value="{{$ruta->importe}}">
+                    <h5 for="">Asignacion de precio</h5>
+                    <select name="asignacion_precio" id="asignacion_precio" class="form-control">
+                        @foreach($provedores as $provedor)
+                            @if($ruta->asignacion_precio == $provedor->id)
+                                <option value="{{$provedor->id}}" selected>{{$provedor->nombre}}</option>
+                            @else
+                                <option value="{{$provedor->id}}">{{$provedor->nombre}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    <h5 for="">Observaciones</h5>
                     <input maxlength="50" type="text" name="obs" id="obs" class="form-control"  value="{{$ruta->obs}}">
-                    <h5 for="">Dias re</h5>
-                    <input maxlength="50" type="text" name="dias_re" id="dias_re" class="form-control"  value="{{$ruta->dias_re}}">
+                    <h5 for="">Dias para recuperacion de evidencias</h5>
+                    <select name="dias_re" id="dias_re" class="form-control">
+                        @for($j=1; $j<11; $j++)
+                            <option value="{{$j}}">{{$j}}</option>
+                        @endfor
+                    </select>
                     <br>
                     <button type="submit" class="btn btn-info">Actualizar</button>
                 </form>

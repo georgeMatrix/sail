@@ -16,6 +16,7 @@ class CreateRutasTable extends Migration
         Schema::create('rutas', function (Blueprint $table) {
             $table->Increments('id');
             $table->unsignedInteger('clientes');
+            $table->integer('facturador');
             $table->foreign('clientes')->references('id')->on('clientes');
             $table->string('nombre');
             $table->string('lugar_exp');
@@ -34,6 +35,9 @@ class CreateRutasTable extends Migration
             $table->string('concepto');
             $table->string('material_peligroso');
             $table->string('indemnizacion');
+            $table->double('importe');
+            $table->unsignedInteger('asignacion_precio');
+            $table->foreign('asignacion_precio')->references('id')->on('provedores');
             $table->string('obs');
             $table->integer('dias_re');
             $table->timestamps();

@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Nombre</h5>
+                        <h5 for="">Nombre de la unidad</h5>
                         <input maxlength="70" type="text" name="nombre" id="nombre" class="form-control {{$errors->has('nombre')?'is-invalid':''}}"
                                value="{{old('nombre')}}">
                         <div class="invalid-feedback">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Tipo</h5>
+                        <h5 for="">Tipo de unidad</h5>
                         <input maxlength="20" type="text" name="tipo" id="tipo" class="form-control {{$errors->has('tipo')?'is-invalid':''}}"
                                value="{{old('tipo')}}">
                         <div class="invalid-feedback">
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Serie</h5>
+                        <h5 for="">Numero de serie de chasis</h5>
                         <input maxlength="30" type="text" name="serie" id="serie" class="form-control {{$errors->has('serie')?'is-invalid':''}}"
                                value="{{old('serie')}}">
                         <div class="invalid-feedback">
@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Motor</h5>
+                        <h5 for="">Numero de serie de motor</h5>
                         <input maxlength="30" type="text" name="motor" id="motor" class="form-control {{$errors->has('motor')?'is-invalid':''}}"
                                value="{{old('motor')}}">
                         <div class="invalid-feedback">
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Seguro</h5>
+                        <h5 for="">Vencimiento de poliza de seguro</h5>
                         <input type="text" readonly name="seguro" id="seguro" class="form-control {{$errors->has('seguro')?'is-invalid':''}}"
                                value="{{old('seguro')}}">
                         <div class="invalid-feedback">
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Verificacion</h5>
+                        <h5 for="">Vencimiento de Verificacion</h5>
                         <input type="text" readonly name="verificacion" id="verificacion" class="form-control {{$errors->has('verificacion')?'is-invalid':''}}"
                                value="{{old('verificacion')}}">
                         <div class="invalid-feedback">
@@ -117,7 +117,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Fm</h5>
+                        <h5 for="">Vencimiento de fisico mecania</h5>
                         <input type="text" readonly name="fm" id="fm" class="form-control {{$errors->has('fm')?'is-invalid':''}}"
                                value="{{old('fm')}}">
                         <div class="invalid-feedback">
@@ -126,7 +126,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Obs</h5>
+                        <h5 for="">Observaciones</h5>
                         <input maxlength="100" type="text" name="obs" id="obs" class="form-control {{$errors->has('obs')?'is-invalid':''}}"
                                value="{{old('obs')}}">
                         <div class="invalid-feedback">

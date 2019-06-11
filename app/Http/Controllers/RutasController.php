@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Clientes;
 use App\DatosFacturacion;
+use App\Provedores;
 use App\Rutas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RutasController extends Controller
 {
@@ -19,9 +21,20 @@ class RutasController extends Controller
      */
     public function index()
     {
+        $clientes = Clientes::all();
+        $provedores = Provedores::all();
+        $rutasAll = Rutas::all();
         $datosF = DatosFacturacion::orderBy('id', 'DESC')->paginate(10);
         $rutas = Rutas::orderBy('id', 'DESC')->paginate(10);
-        return view('ruta/rutas')->with('rutas' , $rutas)->with('datosF' , $datosF);
+        //Se mandan dos rutas, ya que una de ellas no manda todos los datos ya que como esta paginada solo manda un pedazo
+
+        return view('ruta/rutas')
+            ->with('rutas' , $rutas)
+            ->with('datosF' , $datosF)
+            ->with('provedores', $provedores)
+            ->with('clientes', $clientes)
+            ->with('rutasAll', $rutasAll);
+
     }
 
     /**
@@ -31,9 +44,15 @@ class RutasController extends Controller
      */
     public function create()
     {
+        $datosF = DatosFacturacion::all();
+        $provedores = Provedores::all();
         $rutas = Rutas::all();
         $clientes = Clientes::all();
-        return view('ruta/rutaCreate')->with('clientes',$clientes)->with('rutas' ,$rutas);;
+        return view('ruta/rutaCreate')
+            ->with('clientes',$clientes)
+            ->with('rutas' ,$rutas)
+            ->with('provedores', $provedores)
+            ->with('datosF', $datosF);
     }
 
     /**
@@ -47,6 +66,7 @@ class RutasController extends Controller
         $campos = [
             'clientes' => 'required|numeric',
             'nombre' => 'required',
+            'facturador' => 'required',
             'lugar_exp' => 'required',
             'origen' => 'required',
             'remitente' => 'required',
@@ -64,7 +84,9 @@ class RutasController extends Controller
             'material_peligroso' => 'required',
             'indemnizacion' => 'required',
             'obs' => 'required',
-            'dias_re' => 'required|numeric'
+            'dias_re' => 'required|numeric',
+            'importe' => 'required|numeric',
+            'asignacion_precio' => 'required|numeric'
         ];
         //Este mensaje se dejo aqui por si se requiere ver los datos que no cumplen con alguna validacion en el formulario
         $mensaje = ["required"=>'El :attribute es requerido'];
@@ -94,9 +116,10 @@ class RutasController extends Controller
      */
     public function edit($id)
     {
+        $provedores = Provedores::all();
         $clientes = Clientes::all();
         $ruta = Rutas::findOrFail($id);
-        return view('ruta/rutaEdit')->with('ruta', $ruta)->with('clientes', $clientes);
+        return view('ruta/rutaEdit')->with('ruta', $ruta)->with('clientes', $clientes)->with('provedores', $provedores);
     }
 
     /**

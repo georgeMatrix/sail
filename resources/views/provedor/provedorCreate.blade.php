@@ -17,7 +17,7 @@
                 <form action="{{route('provedores.store')}}" method="post">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <h5 for="">Nombre</h5>
+                        <h5 for="">Nombre comercial del provedor</h5>
                         <input maxlength="70" type="text" name="nombre" id="nombre" class="form-control {{$errors->has('nombre')?'is-invalid':''}}"
                                value="{{old('nombre')}}">
                         <div class="invalid-feedback">
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Razon Social</h5>
+                        <h5 for="">Razon Social del provedor</h5>
                         <input maxlength="70" type="text" name="razon_social" id="razon_social" class="form-control {{$errors->has('razon_social')?'is-invalid':''}}"
                                value="{{old('razon_social')}}">
                         <div class="invalid-feedback">
@@ -71,8 +71,8 @@
                     </div>
 
                     <div class="form-group">
-                        <h5 for="">Credito</h5>
-                        <input type="number" name="credito" id="credito" class="form-control {{$errors->has('credito')?'is-invalid':''}}"
+                        <h5 for="">Dias de Credito</h5>
+                        <input type="number" min="0" name="credito" id="credito" class="form-control {{$errors->has('credito')?'is-invalid':''}}"
                                value="{{old('credito')}}">
                         <div class="invalid-feedback">
                             El credito es requerido y debe de ser numerico
@@ -81,7 +81,7 @@
 
                     <div class="form-group">
                         <h5 for="">Saldo</h5>
-                        <input type="number" name="saldo" id="saldo" class="form-control {{$errors->has('saldo')?'is-invalid':''}}"
+                        <input type="number" min="0" name="saldo" id="saldo" class="form-control {{$errors->has('saldo')?'is-invalid':''}}"
                                value="{{old('saldo')}}">
                         <div class="invalid-feedback">
                             El saldo es requerido y debe de ser numerico

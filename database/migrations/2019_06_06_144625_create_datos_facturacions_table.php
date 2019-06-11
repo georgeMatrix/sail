@@ -17,6 +17,8 @@ class CreateDatosFacturacionsTable extends Migration
             $table->Increments('id');
             $table->unsignedInteger('rutas');
             $table->foreign('rutas')->references('id')->on('rutas');
+            $table->unsignedInteger('asignacionPrecio');
+            $table->foreign('asignacionPrecio')->references('id')->on('provedores');
             $table->string('claveProdServ');
             $table->string('noIdentificacion');
             $table->double('cantidad');

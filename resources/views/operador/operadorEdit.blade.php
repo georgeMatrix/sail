@@ -20,19 +20,19 @@
                     {{method_field('PATCH')}}
                     <h5 for="">Apellido paterno</h5>
                     <input maxlength="20" type="text" name="apellido_paterno" id="apellido_paterno" class="form-control" value="{{$operador->apellido_paterno}}">
-                    <h5 for="">Apellido Materno</h5>
+                    <h5 for="">Apellido materno</h5>
                     <input maxlength="20" type="text" name="apellido_materno" id="apellido_materno" class="form-control"  value="{{$operador->apellido_materno}}">
                     <h5 for="">Nombres</h5>
                     <input maxlength="50" type="text" name="nombres" id="nombres" class="form-control"  value="{{$operador->nombres}}">
                     <h5 for="">Nombre corto</h5>
                     <input maxlength="20" type="text" name="nombre_corto" id="nombre_corto" class="form-control"  value="{{$operador->nombre_corto}}">
-                    <h5 for="">Licencia</h5>
+                    <h5 for="">Numero de licencia</h5>
                     <input maxlength="20" type="text" name="licencia" id="licencia" class="form-control"  value="{{$operador->licencia}}">
-                    <h5 for="">Vigencia licencia</h5>
+                    <h5 for="">Vigencia de licencia</h5>
                     <input type="text" readonly name="vigencia_licencia" id="vigencia_licencia" class="form-control"  value="{{$operador->vigencia_licencia}}">
-                    <h5 for="">Vigencia medico</h5>
+                    <h5 for="">Vigencia de examen medico</h5>
                     <input type="text" readonly name="vigencia_medico" id="vigencia_medico" class="form-control"  value="{{$operador->vigencia_medico}}">
-                    <h5 for="">Obs</h5>
+                    <h5 for="">Observaciones</h5>
                     <input maxlength="100" type="text" name="obs" id="obs" class="form-control"  value="{{$operador->obs}}">
                     <br>
                     <button type="submit" class="btn btn-info"><i class="far fa-edit"></i> Actualizar</button>

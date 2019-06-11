@@ -22,20 +22,20 @@
                     <thead class="table-info">
                     <tr>
                         <th>ID</th>
-                        <th>NOMBRE</th>
+                        <th>NOMBRE_CLIENTE</th>
                         <th>CALLE</th>
                         <th>NUMERO</th>
-                        <th>INTERIOR</th>
+                        <th>NUMERO_INTERIOR</th>
                         <th>COLONIA</th>
-                        <th>CIUDAD</th>
-                        <th>CP</th>
+                        <th>CIUDAD_O_MUNICIPIO</th>
+                        <th>CODIGO_POSTAL</th>
                         <th>ESTADO</th>
-                        <th>CONTACTO_1</th>
-                        <th>TELEFONO_1</th>
-                        <th>MAIL_1</th>
-                        <th>CONTACTO_2</th>
-                        <th>TELEFONO_2</th>
-                        <th>MAIL_2</th>
+                        <th>PRIMER_CONTACTO</th>
+                        <th>TELEFONO</th>
+                        <th>MAIL</th>
+                        <th>SEGUNDO_CONTACTO</th>
+                        <th>TELEFONO</th>
+                        <th>MAIL</th>
                         <th>DIA_DE_REVISION</th>
                         <th>DIA_DE_CREDITO</th>
                         <th>ELIMINAR_REGISTRO</th>

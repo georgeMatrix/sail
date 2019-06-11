@@ -27,12 +27,12 @@
                         <th>NOMBRE</th>
                         <th>PASSWORD</th>
                         <th>NOMBRE_CORTO</th>
-                        <th>CARGO</th>
+                        <th>CARGO_DEL_USUARIO</th>
                         <th>AREA</th>
-                        <th>MODULO_01</th>
-                        <th>MODULO_02</th>
-                        <th>MODULO_03</th>
-                        <th>MODULO_04</th>
+                        <th>CATALOGOS</th>
+                        <th>RUTAS</th>
+                        <th>CARTA_PORTE</th>
+                        <th>FACTURACION</th>
                         <th>MODULO_05</th>
                         <th>MODULO_06</th>
                         <th>MODULO_07</th>
