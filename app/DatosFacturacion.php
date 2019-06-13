@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatosFacturacion extends Model
 {
-    protected $fillable = ['ruta', 'asignacionPrecio', 'claveProdServ', 'noIdentificacion', 'cantidad', 'claveUnidad', 'unidad', 'descripcion', 'valorUnitario', 'importe', 'tIva', 'tIsr', 'rIva', 'rIsr'];
+    protected $fillable = ['ruta', 'facturador', 'asignacionPrecio', 'claveProdServ', 'noIdentificacion', 'cantidad', 'claveUnidad', 'unidad', 'descripcion', 'valorUnitario', 'importe', 'tIva', 'tIsr', 'rIva', 'rIsr'];
 
-    public function rutas(){
-        $this->belongsTo(Rutas::class, 'id');
+    public function rutasF(){
+        return $this->belongsTo(Rutas::class, 'rutas');
     }
 
     public function provedoresF(){
-        $this->belongsTo(Provedores::class, 'id');
+        return $this->belongsTo(Provedores::class, 'asignacionPrecio');
     }
 }

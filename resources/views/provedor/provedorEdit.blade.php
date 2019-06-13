@@ -22,7 +22,7 @@
                     <h5 for="">Razon social del proveedor</h5>
                     <input maxlength="70" type="text" name="razon_social" id="razon_social" class="form-control"  value="{{$provedor->razon_social}}">
                     <h5 for="">Rfc</h5>
-                    <input maxlength="11" type="text" name="rfc" id="rfc" class="form-control"  value="{{$provedor->rfc}}">
+                    <input maxlength="13" type="text" name="rfc" id="rfc" class="form-control"  value="{{$provedor->rfc}}">
                     <h5 for="">Direccion</h5>
                     <input maxlength="100" type="text" name="direccion" id="direccion" class="form-control"  value="{{$provedor->direccion}}">
                     <h5 for="">Contacto</h5>

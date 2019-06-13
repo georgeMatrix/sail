@@ -14,12 +14,12 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('unidades.store')}}" method="post">
+                <form action="{{route('unidades.store')}}" method="post" id="formUnidad">
                     {{csrf_field()}}
 
                     <div class="form-group">
                         <h5 for="">Proveedor</h5>
-                        <select name="provedor" id="provedor" class="form-control">
+                        <select name="provedor" required id="provedor" class="form-control">
                             @foreach($provedores as $provedor)
                                 <option value="{{$provedor->id}}">{{$provedor->nombre}}</option>
                             @endforeach
@@ -134,12 +134,17 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-info">Guardar</button>
+                    <button id="guardarCreate" type="submit" class="btn btn-info">Guardar</button>
                 </form>
             </div>
         </div>
     </div>
     <script type="text/javascript">
+        $(document).ready(function() {
+            $("#formUnidad").on('submit', function(){
+                $("#guardarCreate").prop("disabled", true);
+            })
+        });
         jQuery.fn.datepicker.dates['es'] = {
             days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
             daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],

@@ -39,7 +39,6 @@
                                                     <th>ID</th>
                                                     <th>NOMBRE_DE_RUTA</th>
                                                     <th>CLIENTE</th>
-                                                    <th>RAZON_SOCIAL_QUE_FACTURA</th>
                                                     <th>LUGAR_EXPEDICION</th>
                                                     <th>ORIGEN</th>
                                                     <th>REMITENTE</th>
@@ -69,12 +68,7 @@
                                                     <tr>
                                                         <td>{{$ruta->id}}</td>
                                                         <td>{{$ruta->nombre}}</td>
-                                                        @foreach($clientes as $cliente)
-                                                            @if($ruta->clientes == $cliente->id)
-                                                                <td>{{$cliente->nombre}}</td>
-                                                            @endif
-                                                        @endforeach
-                                                        <td>{{$ruta->facturador}}</td>
+                                                        <td>{{$ruta->clientesF->nombre}}</td>
                                                         <td>{{$ruta->lugar_exp}}</td>
                                                         <td>{{$ruta->origen}}</td>
                                                         <td>{{$ruta->remitente}}</td>
@@ -92,11 +86,7 @@
                                                         <td>{{$ruta->material_peligroso}}</td>
                                                         <td>{{$ruta->indemnizacion}}</td>
                                                         <td>{{$ruta->importe}}</td>
-                                                        @foreach($provedores as $provedor)
-                                                            @if($ruta->asignacion_precio == $provedor->id)
-                                                                <td>{{$provedor->nombre}}</td>
-                                                            @endif
-                                                        @endforeach
+                                                        <td>{{$ruta->nombre}}</td>
                                                         <td>{{$ruta->obs}}</td>
                                                         <td>{{$ruta->dias_re}}</td>
                                                         <td>
@@ -131,6 +121,7 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>RUTAS</th>
+                                                <th>RAZON_SOCIAL_QUE_FACTURA</th>
                                                 <th>ASIGNACION_DE_PRECIO</th>
                                                 <th>CLAVE_DE_PRODUCTO_O_SERVICIO</th>
                                                 <th>NUMERO_DE_IDENTIFICACION</th>
@@ -152,16 +143,9 @@
                                             @foreach($datosF as $dt)
                                                 <tr>
                                                     <td>{{$dt->id}}</td>
-                                                    @foreach($rutasAll as $ruta)
-                                                        @if($dt->rutas == $ruta->id)
-                                                            <td>{{$ruta->nombre}}</td>
-                                                        @endif
-                                                    @endforeach
-                                                    @foreach($provedores as $provedor)
-                                                        @if($dt->asignacionPrecio == $provedor->id)
-                                                            <td>{{$provedor->nombre}}</td>
-                                                        @endif
-                                                    @endforeach
+                                                    <td>{{$dt->rutasF->nombre}}</td>
+                                                    <td>{{$dt->facturador}}</td>
+                                                    <td>{{$dt->provedoresF->nombre}}</td>
                                                     <td>{{$dt->claveProdServ}}</td>
                                                     <td>{{$dt->noIdentificacion}}</td>
                                                     <td>{{$dt->cantidad}}</td>

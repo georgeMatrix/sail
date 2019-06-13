@@ -15,7 +15,7 @@
 
         <div class="row">
         <div class="col-md-12">
-            <form action="{{route('clientes.store')}}" method="post">
+            <form action="{{route('clientes.store')}}" method="post" id="formularioCliente">
                 {{csrf_field()}}
                 <div class="form-group">
                     <h5 for="">Nombre</h5>
@@ -164,9 +164,16 @@
                     
                 </div>
 
-                <button type="submit" class="btn btn-info"><i class="far fa-save"></i> Guardar</button>
+                <button id="guardarCliente" type="submit" class="btn btn-info"><i class="far fa-save"></i> Guardar</button>
             </form>
         </div>
     </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#formularioCliente").on('submit', function(){
+                $("#guardarCliente").prop("disabled", true);
+            })
+        });
+    </script>
 @endsection

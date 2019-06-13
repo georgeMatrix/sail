@@ -139,11 +139,16 @@
                         <input data-toggle="toggle" type="checkbox" id="modulo10" name="modulo10" value="1" @if(old('modulo10') ==  1) checked="checked"  @endif />
                     </div>
 
-                    <button type="submit" class="btn btn-info">Guardar</button>
+                    <button id="guardarUsuario" type="submit" class="btn btn-info">Guardar</button>
                 </form>
             </div>
         </div>
     </div>
-
-
+    <script>
+        $(document).ready(function() {
+            $("#formUsuario").on('submit', function(){
+                $("#guardarUsuario").prop("disabled", true);
+            })
+        });
+    </script>
 @endsection

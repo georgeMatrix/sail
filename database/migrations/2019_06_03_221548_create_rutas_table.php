@@ -16,7 +16,6 @@ class CreateRutasTable extends Migration
         Schema::create('rutas', function (Blueprint $table) {
             $table->Increments('id');
             $table->unsignedInteger('clientes');
-            $table->integer('facturador');
             $table->foreign('clientes')->references('id')->on('clientes');
             $table->string('nombre');
             $table->string('lugar_exp');

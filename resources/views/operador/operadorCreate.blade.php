@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('operadores.store')}}" method="post">
+                <form action="{{route('operadores.store')}}" method="post" id="formOperador">
                     {{csrf_field()}}
                     <div class="form-group">
                         <h5 for="">Apellido paterno</h5>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-info"><i class="far fa-save"></i> Guardar</button>
+                    <button id="guardarOperador" type="submit" class="btn btn-info"><i class="far fa-save"></i> Guardar</button>
                 </form>
             </div>
         </div>
@@ -118,6 +118,10 @@
                 language: "es",
                 autoclose: true
             });
-
+        $(document).ready(function() {
+            $("#formOperador").on('submit', function(){
+                $("#guardarOperador").prop("disabled", true);
+            })
+        });
     </script>
 @endsection

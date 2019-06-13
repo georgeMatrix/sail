@@ -42,20 +42,11 @@
 
                                 <div class="form-group">
                                     <h5 for="">Clientes</h5>
-                                    <select name="clientes" id="clientes" class="form-control">
+                                    <select name="clientes" required id="clientes" class="form-control">
                                         @foreach($clientes as $cliente)
                                             <option value="{{$cliente->id}}">{{$cliente->nombre}}</option>
                                         @endforeach
                                     </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <h5 for="">Razon social que factura</h5>
-                                    <input required type="number" min="0" name="facturador" id="facturador" class="form-control {{$errors->has('facturador')?'is-invalid':''}}"
-                                           value="{{old('facturador')}}">
-                                    <div class="invalid-feedback">
-                                        El campo lugar_exp es requerido
-                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -213,7 +204,7 @@
 
                                 <div class="form-group">
                                 <h5 for="">Asignacion de precio</h5>
-                                <select name="asignacion_precio" id="asignacion_precio" class="form-control">
+                                <select name="asignacion_precio" required id="asignacion_precio" class="form-control">
                                     @foreach($provedores as $provedor)
                                         <option value="{{$provedor->id}}" selected>{{$provedor->nombre}}</option>
                                     @endforeach
@@ -231,7 +222,7 @@
 
                                 <div class="form-group">
                                     <h5 for="">dias para recuperacion de evidencias</h5>
-                                    <select name="dias_re" id="dias_re" class="form-control">
+                                    <select name="dias_re" required id="dias_re" class="form-control">
                                         @for($j=1; $j<11; $j++)
                                             <option value="{{$j}}">{{$j}}</option>
                                         @endfor
@@ -246,7 +237,7 @@
                                 <input type="hidden" name="token" id="tokenFormDfacturacion" value="{{csrf_token()}}">
                                 <div class="form-group">
                                     <h5 for="">Rutas</h5>
-                                    <select name="rutas" id="rutasSelect" class="form-control">
+                                    <select name="rutas" required id="rutasSelect" class="form-control">
                                         @foreach($rutas as $ruta)
                                             <option value="{{$ruta->id}}">{{$ruta->nombre}}</option>
                                         @endforeach
@@ -254,8 +245,17 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <h5 for="">Razon social que factura</h5>
+                                    <input required type="number" min="0" name="facturador" id="facturador" class="form-control {{$errors->has('facturador')?'is-invalid':''}}"
+                                           value="{{old('facturador')}}">
+                                    <div class="invalid-feedback">
+                                        El campo lugar_exp es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <h5 for="">Asignacion de precio</h5>
-                                    <select name="asignacionPrecio" id="asignacionPrecio" class="form-control">
+                                    <select name="asignacionPrecio" required id="asignacionPrecio" class="form-control">
                                         @foreach($provedores as $provedor)
                                             <option value="{{$provedor->id}}">{{$provedor->nombre}}</option>
                                         @endforeach
@@ -383,7 +383,6 @@
             e.preventDefault();
             var clientes = $('#clientes').val();
             var nombre = $('#nombre').val();
-            var facturador = $('#facturador').val();
             var lugar_exp = $('#lugar_exp').val();
             var origen = $('#origen').val();
             var remitente = $('#remitente').val();
@@ -409,7 +408,6 @@
             var request = {
                 clientes:clientes,
                 nombre:nombre,
-                facturador:facturador,
                 lugar_exp:lugar_exp,
                 origen:origen,
                 remitente:remitente,
@@ -441,51 +439,71 @@
             })
                 .done(function() {
                     console.log("success");
-                    $("#guardarRutasBtn").removeClass('btn-info');
-                    $("#guardarRutasBtn").addClass('btn-success');
-                    $("#guardarRutasBtn").attr("disabled", true);
-                    $("#guardarRutasBtn").html('Dato Guardado');
+                    alert("Dato Guardado")
 
                     $.get('/api/uno', function (data) {
-                        //<option value="">Seleccione nivel</option>
                         var html_select = '';
                         for (var i=0; i<data.length; i++){
-                            html_select += '<option value=">'+data[i].id+'">'+data[i].nombre+'</option>';
+                            html_select += '<option value="'+data[i].id+'">'+data[i].nombre+'</option>';
                         }
                         $("#rutasSelect").html(html_select)
 
                     })
+
+                    $("#nombre").val("");
+                    $('#clientes').prop('selectedIndex',0);
+                    $('#asignacion_precio').prop('selectedIndex',0);
+                    $('#dias_re').prop('selectedIndex',0);
+                    $("#facturador").val("");
+                    $("#lugar_exp").val("");
+                    $("#origen").val("");
+                    $("#remitente").val("");
+                    $("#dom_remitente").val("");
+                    $("#recoge").val("");
+                    $("#valor_declarado").val("");
+                    $("#destino").val("");
+                    $("#destinatario").val("");
+                    $("#dom_destinatario").val("");
+                    $("#entrega").val("");
+                    $("#fecha_entrega").val("");
+                    $("#cantidad").val("");
+                    $("#embalaje").val("");
+                    $("#concepto").val("");
+                    $("#material_peligroso").val("");
+                    $("#indemnizacion").val("");
+                    $("#importe").val("");
+                    $("#obs").val("");
 
                 })
                 .fail( function( jqXHR, textStatus, errorThrown ) {
 
                     if (jqXHR.status === 0) {
 
-                        alert('Not connect: Verify Network.');
+                        console.log('Not connect: Verify Network.');
 
                     } else if (jqXHR.status == 404) {
 
-                        alert('Requested page not found [404]');
+                        console.log('Requested page not found [404]');
 
                     } else if (jqXHR.status == 500) {
 
-                        alert('Internal Server Error [500].');
+                        console.log('Internal Server Error [500].');
 
                     } else if (textStatus === 'parsererror') {
 
-                        alert('Requested JSON parse failed.');
+                        console.log('Requested JSON parse failed.');
 
                     } else if (textStatus === 'timeout') {
 
-                        alert('Time out error.');
+                        console.log('Time out error.');
 
                     } else if (textStatus === 'abort') {
 
-                        alert('Ajax request aborted.');
+                        console.log('Ajax request aborted.');
 
                     } else {
 
-                        alert('Uncaught Error: ' + jqXHR.responseText);
+                        console.log('Uncaught Error: ' + jqXHR.responseText);
 
                     }
 
@@ -495,6 +513,7 @@
         $("#dFacturacionForm").submit(function(e){
             e.preventDefault();
             var rutas = $("#rutasSelect").val();
+            var facturador = $('#facturador').val();
             var asignacionPrecio = $("#asignacionPrecio").val();
             var claveProdServ = $("#claveProdServ").val();
             var noIdentificacion = $("#noIdentificacion").val();
@@ -512,6 +531,7 @@
 
             var request = {
                 rutas:rutas,
+                facturador:facturador,
                 asignacionPrecio:asignacionPrecio,
                 claveProdServ:claveProdServ,
                 noIdentificacion:noIdentificacion,
@@ -536,40 +556,54 @@
             })
                 .done(function() {
                     console.log("success");
-                    $("#guardarDfacturacionBtn").removeClass('btn-info');
-                    $("#guardarDfacturacionBtn").addClass('btn-success');
-                    $("#guardarDfacturacionBtn").attr("disabled", true);
-                    $("#guardarDfacturacionBtn").html('Dato Guardado');
+                    alert("Dato Guardado")
+
+                    $('#rutasSelect').prop('selectedIndex',0);
+                    $('#asignacionPrecio').prop('selectedIndex',0);
+                    $("#claveProdServ").val("");
+                    $("#noIdentificacion").val("");
+                    $("#cantidadDfacturacion").val("");
+                    $("#claveUnidad").val("");
+                    $("#unidad").val("");
+                    $("#descripcion").val("");
+                    $("#valorUnitario").val("");
+                    $("#importeF").val("");
+                    $("#tIva").val("");
+                    $("#tIsr").val("");
+                    $("#rIva").val("");
+                    $("#rIsr").val("");
+
+
                 })
                 .fail( function( jqXHR, textStatus, errorThrown ) {
 
                     if (jqXHR.status === 0) {
 
-                        alert('Not connect: Verify Network.');
+                        console.log('Not connect: Verify Network.');
 
                     } else if (jqXHR.status == 404) {
 
-                        alert('Requested page not found [404]');
+                        console.log('Requested page not found [404]');
 
                     } else if (jqXHR.status == 500) {
 
-                        alert('Internal Server Error [500].');
+                        console.log('Internal Server Error [500].');
 
                     } else if (textStatus === 'parsererror') {
 
-                        alert('Requested JSON parse failed.');
+                        console.log('Requested JSON parse failed.');
 
                     } else if (textStatus === 'timeout') {
 
-                        alert('Time out error.');
+                        console.log('Time out error.');
 
                     } else if (textStatus === 'abort') {
 
-                        alert('Ajax request aborted.');
+                        console.log('Ajax request aborted.');
 
                     } else {
 
-                        alert('Uncaught Error: ' + jqXHR.responseText);
+                        console.log('Uncaught Error: ' + jqXHR.responseText);
 
                     }
 

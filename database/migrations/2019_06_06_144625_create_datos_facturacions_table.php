@@ -16,6 +16,7 @@ class CreateDatosFacturacionsTable extends Migration
         Schema::create('datos_facturacions', function (Blueprint $table) {
             $table->Increments('id');
             $table->unsignedInteger('rutas');
+            $table->integer('facturador');
             $table->foreign('rutas')->references('id')->on('rutas');
             $table->unsignedInteger('asignacionPrecio');
             $table->foreign('asignacionPrecio')->references('id')->on('provedores');

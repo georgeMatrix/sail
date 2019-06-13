@@ -39,28 +39,10 @@ class DatosFacturacionController extends Controller
      */
     public function store(Request $request)
     {
-        $campos = [
-            'rutas' => 'required',
-            'claveProdServ' => 'required',
-            'noIdentificacion' => 'required',
-            'cantidad' => 'required|numeric',
-            'claveUnidad' => 'required',
-            'unidad' => 'required',
-            'descripcion' => 'required',
-            'valorUnitario' => 'required',
-            'importe' => 'required|numeric',
-            'tIva' => 'required|numeric',
-            'tIsr' => 'required|numeric',
-            'rIva' => 'required|numeric',
-            'rIsr' => 'required|numeric',
-        ];
-        //Este mensaje se dejo aqui por si se requiere ver los datos que no cumplen con alguna validacion en el formulario
-        $mensaje = ["required"=>'El :attribute es requerido'];
-        $this->validate($request, $campos, $mensaje);
 
         $datosF = $request->except('_token');
         DatosFacturacion::insert($datosF);
-        return redirect()->route('datosFacturacions.index');
+        //return redirect()->route('datosFacturacions.index');
     }
 
     /**

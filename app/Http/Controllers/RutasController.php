@@ -66,7 +66,6 @@ class RutasController extends Controller
         $campos = [
             'clientes' => 'required|numeric',
             'nombre' => 'required',
-            'facturador' => 'required',
             'lugar_exp' => 'required',
             'origen' => 'required',
             'remitente' => 'required',

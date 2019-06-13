@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('provedores.store')}}" method="post">
+                <form action="{{route('provedores.store')}}" method="post" id="formProvedor">
                     {{csrf_field()}}
                     <div class="form-group">
                         <h5 for="">Nombre comercial del provedor</h5>
@@ -36,7 +36,7 @@
 
                     <div class="form-group">
                         <h5 for="">Rfc</h5>
-                        <input maxlength="11" type="text" name="rfc" id="rfc" class="form-control {{$errors->has('rfc')?'is-invalid':''}}"
+                        <input maxlength="13" type="text" name="rfc" id="rfc" class="form-control {{$errors->has('rfc')?'is-invalid':''}}"
                                value="{{old('rfc')}}">
                         <div class="invalid-feedback">
                             El rfc es requerido
@@ -88,9 +88,16 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-info">Guardar</button>
+                    <button id="guardarProvedor" type="submit" class="btn btn-info">Guardar</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#formProvedor").on('submit', function(){
+                $("#guardarProvedor").prop("disabled", true);
+            })
+        });
+    </script>
 @endsection

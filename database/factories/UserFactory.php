@@ -76,7 +76,6 @@ $factory->define(\App\Operadores::class, function (Faker $faker) {
 $factory->define(\App\Rutas::class, function (Faker $faker) {
     return [
         'clientes' => $faker->numberBetween(1,10),
-        'facturador' => $faker->numberBetween(1,10),
         'nombre' => $faker->name,
         'lugar_exp' => $faker->name,
         'origen' => $faker->name,
@@ -122,6 +121,7 @@ $factory->define(\App\Unidades::class, function (Faker $faker) {
 $factory->define(\App\DatosFacturacion::class, function (Faker $faker) {
     return [
         'rutas' => $faker->numberBetween(1,10),
+        'facturador' => $faker->numberBetween(1,10),
         'asignacionPrecio' => $faker->numberBetween(1,50),
         'claveProdServ' => $faker->name,
         'noIdentificacion' => $faker->name,

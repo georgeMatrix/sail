@@ -29,8 +29,6 @@
                             @endif
                         @endforeach
                     </select>
-                    <h5 for="">Razon social que factura</h5>
-                    <input maxlength="50" type="text" name="lugar_exp" id="lugar_exp" class="form-control"  value="{{$ruta->lugar_exp}}">
                     <h5 for="">Lugar de expedicion</h5>
                     <input maxlength="50" type="text" name="lugar_exp" id="lugar_exp" class="form-control"  value="{{$ruta->lugar_exp}}">
                     <h5 for="">Origen</h5>
