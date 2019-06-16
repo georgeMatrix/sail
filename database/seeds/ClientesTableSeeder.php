@@ -18,5 +18,6 @@ class ClientesTableSeeder extends Seeder
         factory(\App\Unidades::class, 50)->create();
         factory(\App\DatosFacturacion::class, 50)->create();
         factory(\App\Usuarios::class, 50)->create();
+        factory(\App\DatosCporPagar::class, 50)->create();
     }
 }

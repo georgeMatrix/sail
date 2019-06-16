@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clientes;
+use App\DatosCporPagar;
 use App\DatosFacturacion;
 use App\Provedores;
 use App\Rutas;
@@ -21,6 +22,8 @@ class RutasController extends Controller
      */
     public function index()
     {
+        $datosCxP = DatosCporPagar::all();
+        $datosCxPListado = DatosCporPagar::all();
         $clientes = Clientes::all();
         $provedores = Provedores::all();
         $rutasAll = Rutas::all();
@@ -33,8 +36,9 @@ class RutasController extends Controller
             ->with('datosF' , $datosF)
             ->with('provedores', $provedores)
             ->with('clientes', $clientes)
-            ->with('rutasAll', $rutasAll);
-
+            ->with('rutasAll', $rutasAll)
+            ->with('datosCxP', $datosCxP)
+            ->with('datosCxPListado', $datosCxPListado);
     }
 
     /**

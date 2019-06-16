@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100136
 File Encoding         : 65001
 
-Date: 2019-06-12 09:37:38
+Date: 2019-06-13 11:41:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,4 +35,4 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'jorgeNieto', 'jorge@gmail.com', null, '$2y$10$tCRU.cac4iIPPNe2CnVTtOQVRw28.MSAyPrybGOHpYF.9NT2f6Ynq', null, '2019-06-12 14:21:58', '2019-06-12 14:21:58');
+INSERT INTO `users` VALUES ('1', 'Jorge Nieto', 'jorge@gmail.com', null, '$2y$10$hVTd3bZiWbLsG/l0s7LH/OL1FCHPX1vqJRu0MdbApdha6LNlgWtGi', null, '2019-06-13 16:13:33', '2019-06-13 16:13:33');

@@ -159,3 +159,23 @@ $factory->define(\App\Usuarios::class, function (Faker $faker) {
         'modulo10' => $faker->boolean
     ];
 });
+
+$factory->define(\App\DatosCporPagar::class, function (Faker $faker) {
+    return [
+        'ruta' => $faker->numberBetween(1,30),
+        'concepto' => $faker->name,
+        'asignacionPrecio' => $faker->numberBetween(1,30),
+        'claveProdServ' => $faker->name,
+        'noIdentificacion' => $faker->name,
+        'cantidad' => $faker->numberBetween(100,150),
+        'claveUnidad' => $faker->name,
+        'unidad' => $faker->name,
+        'descripcion' => $faker->name,
+        'valorUnitario' => $faker->numberBetween(100,150),
+        'importe' => $faker->numberBetween(100,150),
+        'tivaCxP' => $faker->numberBetween(100,150),
+        'tisrCxP' => $faker->numberBetween(100,150),
+        'rivaCxP' => $faker->numberBetween(100,150),
+        'risrCxP' => $faker->numberBetween(100,150),
+    ];
+});

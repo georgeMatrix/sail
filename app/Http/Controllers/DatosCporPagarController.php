@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\DatosFacturacion;
+use App\DatosCporPagar;
 use App\Provedores;
 use App\Rutas;
 use Illuminate\Http\Request;
 
-class DatosFacturacionController extends Controller
+class DatosCporPagarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class DatosFacturacionController extends Controller
      */
     public function index()
     {
-        $datosF = DatosFacturacion::orderBy('id', 'DESC')->paginate(10);
-        return view('datosFacturacion/datosFacturacions')->with('datosF' , $datosF);
+        //
     }
 
     /**
@@ -27,8 +26,7 @@ class DatosFacturacionController extends Controller
      */
     public function create()
     {
-        $rutas = Rutas::all();
-        return view('datosFacturacion/datosFacturacionCreate')->with('rutas' ,$rutas);
+        //
     }
 
     /**
@@ -39,19 +37,17 @@ class DatosFacturacionController extends Controller
      */
     public function store(Request $request)
     {
-
-        $datosF = $request->except('_token');
-        DatosFacturacion::insert($datosF);
-        //return redirect()->route('datosFacturacions.index');
+        $datosCxP = $request->except('_token');
+        DatosCporPagar::insert($datosCxP);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\DatosFacturacion  $datosFacturacion
+     * @param  \App\DatosCporPagar  $datosCporPagar
      * @return \Illuminate\Http\Response
      */
-    public function show(DatosFacturacion $datosFacturacion)
+    public function show(DatosCporPagar $datosCporPagar)
     {
         //
     }
@@ -59,42 +55,40 @@ class DatosFacturacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DatosFacturacion  $datosFacturacion
+     * @param  \App\DatosCporPagar  $datosCporPagar
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $rutas = Rutas::all();
         $provedores = Provedores::all();
-        $datosF = DatosFacturacion::findOrFail($id);
-        return view('datosFacturacion/datosFacturacionEdit')->with('datosF', $datosF)->with('rutas', $rutas)->with('provedores', $provedores);
+        $datosCxP = DatosCporPagar::findOrFail($id);
+        return view('datosCxP/datosCxPEdit')->with('datosCxP', $datosCxP)->with('rutas', $rutas)->with('provedores', $provedores);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DatosFacturacion  $datosFacturacion
+     * @param  \App\DatosCporPagar  $datosCporPagar
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $datosF = $request->except(['_token', '_method']);
-        DatosFacturacion::where('id', '=', $id)->update($datosF);
-        //$cliente = Clientes::findOrFail($id);
-        //return view('cliente/clienteEdit')->with('cliente', $cliente);
+        $datosCxP = $request->except(['_token', '_method']);
+        DatosCporPagar::where('id', '=', $id)->update($datosCxP);
         return redirect()->route('rutas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DatosFacturacion  $datosFacturacion
+     * @param  \App\DatosCporPagar  $datosCporPagar
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        DatosFacturacion::destroy($id);
+        DatosCporPagar::destroy($id);
         return redirect()->route('rutas.index');
     }
 }

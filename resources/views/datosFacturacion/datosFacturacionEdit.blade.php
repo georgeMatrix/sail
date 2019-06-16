@@ -28,7 +28,7 @@
                     @endforeach
                 </select>
                 <h5 for="">Razon social que factura</h5>
-                <input maxlength="50" type="text" name="facturador" id="facturador" class="form-control"  value="{{$ruta->facturador}}">
+                <input type="number" name="facturador" id="facturador" class="form-control"  value="{{$ruta->facturador}}">
                 <h5 for="">Asignacion de Precio</h5>
                 <select name="asignacionPrecio" id="asignacionPrecio" class="form-control">
                     @foreach($provedores as $provedor)

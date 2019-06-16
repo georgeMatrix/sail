@@ -178,24 +178,79 @@
                             </div><!-- End .accordion-group -->
                             <div class="accordion-group panel">
                                 <div class="accordion-header">
-                                    <div class="accordion-title">Cuentas por pagar</div><!-- End .accourdion-title -->
-                                    <a class="accordion-btn" data-toggle="collapse" data-parent="#accordion" href="#accordion-four"></a>
+                                    <div class="accordion-title">Datos Cuentas por Pagar</div><!-- End .accourdion-title -->
+                                    <a class="accordion-btn" data-toggle="collapse" data-parent="#accordion" href="#accordion-five"></a>
                                 </div><!-- End .accordion-header -->
 
-                                <div class="accordion-body collapse" id="accordion-four">
+                                <div class="accordion-body collapse" id="accordion-five">
                                     <div class="accordion-body-wrapper">
-                                        <p>Pellentesque malesuada sollicitudin fermentum. Nullam ultricesposuere congue. Turpis rhoncus. Nullam pretium eleifend neque, eget congue purus tincidunt id. Duis quam vitae condimentum.</p>
-                                        <p>Sed pretium, elit eget fermentum mattis, tortor eros aliquam purus,  lacus mauris pellentesque odio, ut rhoncus erat risus sed.</p>
+                                        <table class="table table-responsive table-hover table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>RUTAS</th>
+                                                <th>CONCEPTO</th>
+                                                <th>ASIGNACION_DE_PRECIO</th>
+                                                <th>CLAVE_DE_PRODUCTO_O_SERVICIO</th>
+                                                <th>NUMERO_DE_IDENTIFICACION</th>
+                                                <th>CANTIDAD</th>
+                                                <th>CLAVE_DE_UNIDAD</th>
+                                                <th>UNIDAD</th>
+                                                <th>DESCRIPCION</th>
+                                                <th>VALOR_UNITARIO</th>
+                                                <th>IMPORTE</th>
+                                                <th>TRASLADO_DE_IVA_(PORCENTAJE)</th>
+                                                <th>TRASLADO_DE_ISR_(PORCENTAJE)</th>
+                                                <th>RETENCION_DE_IVA_(PORCENTAJE)</th>
+                                                <th>RETENCION_DE_ISR_(PORCENTAJE)</th>
+                                                <th>ELIMINAR_REGISTRO</th>
+                                                <th>EDITAR_REGISTRO</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($datosCxPListado as $dCxP)
+                                                <tr>
+                                                    <td>{{$dCxP->id}}</td>
+                                                    <td>{{$dCxP->rutaF->nombre}}</td>
+                                                    <td>{{$dCxP->concepto}}</td>
+                                                    <td>{{$dCxP->asignacionPrecioF->nombre}}</td>
+                                                    <td>{{$dCxP->claveProdServ}}</td>
+                                                    <td>{{$dCxP->noIdentificacion}}</td>
+                                                    <td>{{$dCxP->cantidad}}</td>
+                                                    <td>{{$dCxP->claveUnidad}}</td>
+                                                    <td>{{$dCxP->unidad}}</td>
+                                                    <td>{{$dCxP->descripcion}}</td>
+                                                    <td>{{$dCxP->valorUnitario}}</td>
+                                                    <td>{{$dCxP->importe}}</td>
+                                                    <td>{{$dCxP->tivaCxP}}</td>
+                                                    <td>{{$dCxP->tisrCxP}}</td>
+                                                    <td>{{$dCxP->rivaCxP}}</td>
+                                                    <td>{{$dCxP->risrCxP}}</td>
+                                                    <td>
+                                                        <form method="post" action="{{url('/datosCporPagar/'.$dCxP->id)}}">
+                                                            {{csrf_field()}}
+                                                            {{method_field('DELETE')}}
+                                                            <button id="eliminarCxP" type="submit" onclick="return confirm('Eliminar');" class="btn btn-danger">Eliminar</button>
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <a id="editarCxP" href="{{url('/datosCporPagar/'.$dCxP->id.'/edit')}}" class="btn btn-primary" title="En mantenimiento" data-toggle="tooltip">Editar</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            @endforeach
+                                        </table>
+                                        {{$datosF->render()}}
                                     </div><!-- End .accordion-body-wrapper -->
                                 </div><!-- End .accordion-body -->
                             </div><!-- End .accordion-group -->
                             <div class="accordion-group panel">
                                 <div class="accordion-header">
                                     <div class="accordion-title">Tarifas</div><!-- End .accourdion-title -->
-                                    <a class="accordion-btn" data-toggle="collapse" data-parent="#accordion" href="#accordion-five"></a>
+                                    <a class="accordion-btn" data-toggle="collapse" data-parent="#accordion" href="#accordion-six"></a>
                                 </div><!-- End .accordion-header -->
 
-                                <div class="accordion-body collapse" id="accordion-five">
+                                <div class="accordion-body collapse" id="accordion-six">
                                     <div class="accordion-body-wrapper">
                                         <p>Pellentesque malesuada sollicitudin fermentum. Nullam ultricesposuere congue. Turpis rhoncus. Nullam pretium eleifend neque, eget congue purus tincidunt id. Duis quam vitae condimentum.</p>
                                         <p>Sed pretium, elit eget fermentum mattis, tortor eros aliquam purus,  lacus mauris pellentesque odio, ut rhoncus erat risus sed.</p>

@@ -23,6 +23,9 @@
                         <li class="nav-item">
                             <a href="#tab2" class="nav-link" aria-controls="tab2" role="tab" data-toggle="tab">Datos Facturacion</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#tab3" class="nav-link" aria-controls="tab3" role="tab" data-toggle="tab">Datos Cuenta Por Pagar</a>
+                        </li>
 
                     </ul>
                     <!-- Tab panes -->
@@ -230,9 +233,9 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-info" id="guardarRutasBtn">Guardar</button>
-                            </form></div>
+                            </form>
+                        </div>
                         <div role="tabpanel" class="tab-pane" id="tab2">
-
                             <form action="{{route('datosFacturacions.store')}}" method="post" id="dFacturacionForm">
                                 <input type="hidden" name="token" id="tokenFormDfacturacion" value="{{csrf_token()}}">
                                 <div class="form-group">
@@ -371,7 +374,151 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary" id="guardarDfacturacionBtn">Guardar</button>
-                            </form></div>
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab3">
+                            <form action="{{route('datosCporPagar.store')}}" id="datosCxP">
+                                <input type="hidden" name="token" id="tokenFormDatosCxP" value="{{csrf_token()}}">
+                                <div class="form-group">
+                                    <h5 for="">Rutas</h5>
+                                    <select name="rutas" required id="rutasCxP" class="form-control">
+                                        @foreach($rutas as $ruta)
+                                            <option value="{{$ruta->id}}">{{$ruta->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Concepto</h5>
+                                    <select required name="concepto" id="conceptoCxP" class="form-control">
+                                        <option value="1">Flete</option>
+                                        <option value="2">Maniobras</option>
+                                        <option value="3">Estadias</option>
+                                        <option value="4">Cruce</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Asignacion de precio</h5>
+                                    <select name="asignacionPrecio" required id="asignacionPrecioCxP" class="form-control">
+                                        @foreach($provedores as $provedor)
+                                            <option value="{{$provedor->id}}">{{$provedor->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Clave de Prod o Servicio</h5>
+                                    <input maxlength="20" type="text" required name="claveProdServ" id="claveProdServCxP" class="form-control {{$errors->has('claveProdServ')?'is-invalid':''}}"
+                                           value="{{old('claveProdServ')}}">
+                                    <div class="invalid-feedback">
+                                        El campo claveProdServ es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Numero de identificacion</h5>
+                                    <input maxlength="20" type="text" required name="noIdentificacion" id="noIdentificacionCxP" class="form-control {{$errors->has('noIdentificacion')?'is-invalid':''}}"
+                                           value="{{old('noIdentificacion')}}">
+                                    <div class="invalid-feedback">
+                                        El campo noIdentificacion es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Cantidad</h5>
+                                    <input type="number" required name="cantidad" id="cantidadCxP" class="form-control {{$errors->has('cantidad')?'is-invalid':''}}"
+                                           value="{{old('cantidad')}}">
+                                    <div class="invalid-feedback">
+                                        El campo cantidad es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Clave unidad</h5>
+                                    <input maxlength="20" type="text" required name="claveUnidad" id="claveUnidadCxP" class="form-control {{$errors->has('claveUnidad')?'is-invalid':''}}"
+                                           value="{{old('claveUnidad')}}">
+                                    <div class="invalid-feedback">
+                                        El campo claveUnidad es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Unidad</h5>
+                                    <input maxlength="20" type="text" required name="unidad" id="unidadCxP" class="form-control {{$errors->has('unidad')?'is-invalid':''}}"
+                                           value="{{old('unidad')}}">
+                                    <div class="invalid-feedback">
+                                        El campo unidad es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Descripcion</h5>
+                                    <input maxlength="50" type="string" required name="descripcion" id="descripcionCxP" class="form-control {{$errors->has('descripcion')?'is-invalid':''}}"
+                                           value="{{old('descripcion')}}">
+                                    <div class="invalid-feedback">
+                                        El campo descripcion es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Valor Unitario</h5>
+                                    <input type="number" required name="valorUnitario" id="valorUnitarioCxP" class="form-control {{$errors->has('valorUnitario')?'is-invalid':''}}"
+                                           value="{{old('valorUnitario')}}">
+                                    <div class="invalid-feedback">
+                                        El campo valorUnitario es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">Importe</h5>
+                                    <input type="number" required name="importe" id="importeCxP" class="form-control {{$errors->has('importe')?'is-invalid':''}}"
+                                           value="{{old('importe')}}">
+                                    <div class="invalid-feedback">
+                                        El campo importe es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">tiva</h5>
+                                    <input type="number" required name="tiva" id="tivaCxP" class="form-control {{$errors->has('tiva')?'is-invalid':''}}"
+                                           value="{{old('tiva')}}">
+                                    <div class="invalid-feedback">
+                                        El campo tiva es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">tisr</h5>
+                                    <input type="number" required name="tisr" id="tisrCxP" class="form-control {{$errors->has('tisr')?'is-invalid':''}}"
+                                           value="{{old('tisr')}}">
+                                    <div class="invalid-feedback">
+                                        El campo tisr es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">riva</h5>
+                                    <input type="number" required name="riva" id="rivaCxP" class="form-control {{$errors->has('riva')?'is-invalid':''}}"
+                                           value="{{old('riva')}}">
+                                    <div class="invalid-feedback">
+                                        El campo riva es requerido
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5 for="">risr</h5>
+                                    <input type="number" required name="risr" id="risrCxP" class="form-control {{$errors->has('risr')?'is-invalid':''}}"
+                                           value="{{old('risr')}}">
+                                    <div class="invalid-feedback">
+                                        El campo risr es requerido
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" id="guardarDxP">Guardar</button>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -447,6 +594,15 @@
                             html_select += '<option value="'+data[i].id+'">'+data[i].nombre+'</option>';
                         }
                         $("#rutasSelect").html(html_select)
+
+                    });
+
+                    $.get('/api/uno', function (data) {
+                        var html_select = '';
+                        for (var i=0; i<data.length; i++){
+                            html_select += '<option value="'+data[i].id+'">'+data[i].nombre+'</option>';
+                        }
+                        $("#rutasCxP").html(html_select)
 
                     })
 
@@ -559,6 +715,7 @@
                     alert("Dato Guardado")
 
                     $('#rutasSelect').prop('selectedIndex',0);
+                    $('#facturador').val("");
                     $('#asignacionPrecio').prop('selectedIndex',0);
                     $("#claveProdServ").val("");
                     $("#noIdentificacion").val("");
@@ -574,6 +731,105 @@
                     $("#rIsr").val("");
 
 
+                })
+                .fail( function( jqXHR, textStatus, errorThrown ) {
+
+                    if (jqXHR.status === 0) {
+
+                        console.log('Not connect: Verify Network.');
+
+                    } else if (jqXHR.status == 404) {
+
+                        console.log('Requested page not found [404]');
+
+                    } else if (jqXHR.status == 500) {
+
+                        console.log('Internal Server Error [500].');
+
+                    } else if (textStatus === 'parsererror') {
+
+                        console.log('Requested JSON parse failed.');
+
+                    } else if (textStatus === 'timeout') {
+
+                        console.log('Time out error.');
+
+                    } else if (textStatus === 'abort') {
+
+                        console.log('Ajax request aborted.');
+
+                    } else {
+
+                        console.log('Uncaught Error: ' + jqXHR.responseText);
+
+                    }
+
+                });
+        });
+
+        $("#datosCxP").submit(function(e){
+            e.preventDefault();
+                var ruta = $('#rutasCxP').val();
+                var concepto = $('#conceptoCxP').val();
+                var asignacionPrecio = $('#asignacionPrecioCxP').val();
+                var claveProdServ = $('#claveProdServCxP').val();
+                var noIdentificacion = $('#noIdentificacionCxP').val();
+                var cantidadCxP = $('#cantidadCxP').val();
+                var claveUnidad = $('#claveUnidadCxP').val();
+                var unidad = $('#unidadCxP').val();
+                var descripcion = $('#descripcionCxP').val();
+                var valorUnitario = $('#valorUnitarioCxP').val();
+                var importeCxP = $('#importeCxP').val();
+                var tivaCxP = $('#tivaCxP').val();
+                var tisrCxP = $('#tisrCxP').val();
+                var rivaCxP = $('#tisrCxP').val();
+                var risrCxP = $('#risrCxP').val();
+                var token = $('#tokenFormDatosCxP').val();
+            var request = {
+                ruta:ruta,
+                concepto:concepto,
+                asignacionPrecio:asignacionPrecio,
+                claveProdServ:claveProdServ,
+                noIdentificacion:noIdentificacion,
+                cantidad:cantidadCxP,
+                claveUnidad:claveUnidad,
+                unidad:unidad,
+                descripcion:descripcion,
+                valorUnitario:valorUnitario,
+                importe:importeCxP,
+                tivaCxP:tivaCxP,
+                tisrCxP:tisrCxP,
+                rivaCxP:rivaCxP,
+                risrCxP:risrCxP
+
+            }
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                headers: {'X-CSRF-TOKEN':token},
+                contentType: 'application/json',
+                data: JSON.stringify(request),
+            })
+                .done(function() {
+                    console.log("success");
+                    alert("Dato Guardado")
+
+                    $('#ruta').prop('selectedIndex',0);
+                    $('#concepto').val("")
+                    $('#asignacionPrecio').prop('selectedIndex',0);
+                    $('#claveProdServCxP').val("")
+                    $('#noIdentificacionCxP').val("")
+                    $('#cantidadCxP').val("")
+                    $('#claveUnidadCxP').val("")
+                    $('#unidadCxP').val("")
+                    $('#descripcionCxP').val("")
+                    $('#valorUnitarioCxP').val("")
+                    $('#importeCxP').val("")
+                    $('#tivaCxP').val("")
+                    $('#tisrCxP').val("")
+                    $('#rivaCxP').val("")
+                    $('#risrCxP').val("")
                 })
                 .fail( function( jqXHR, textStatus, errorThrown ) {
 

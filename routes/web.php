@@ -23,6 +23,7 @@ Route::group(['middleware'=>['auth', 'noCache']], function (){
     Route::resource('unidades', 'UnidadesController');
     Route::resource('datosFacturacions', 'DatosFacturacionController');
     Route::resource('usuarios', 'UsuariosController');
+    Route::resource('datosCporPagar', 'DatosCporPagarController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
